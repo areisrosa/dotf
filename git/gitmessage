@@ -1,0 +1,29 @@
+# Write a title for your commit that gives a general overview
+# of your changes.
+
+# This question tells reviewers of your pull request what
+# to expect in the commit, allowing them to more easily
+# identify and point out unrelated changes.
+# Why is this change necessary?
+
+# [Optional]
+# Describe, at a high level, what was done to affect change.
+# How does it address the issue?
+
+# This is the most important question to answer, as it can
+# point out problems where you are making too many changes
+# in one commit or branch.
+# What side effects does this change have?
+
+# Signal the of authors
+Signed-off-by:
+Review-by:
+
+# If you use an issue tracker, put references to them at the bottom,
+# like this:
+Resolves:
+Seel also:
+
+# If you use references, put references to them at the bottom,
+# like this:
+Reference Links:

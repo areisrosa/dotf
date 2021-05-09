@@ -1,0 +1,277 @@
+# ==============================================================================
+#  _____    _
+# |__  /___| |__  _ __ ___
+#   / // __| '_ \| '__/ __|
+#  / /_\__ \ | | | | | (__
+# /____|___/_| |_|_|  \___|
+#
+#  =============================================================================
+#                            Settings from my computer :)
+#  =============================================================================
+#  Author:        Anderson Reis
+# 
+#  Verison:       Vim
+# 
+#  Terminal:      Kitty
+# 
+#  OS:            Debian (Gnu/Linux)
+# 
+#  Shell:         Zsh
+# 
+#  Description:   This is the personal vimrc and init.vim file. I've tried to
+#                 document every option and item. Feel free to use it to learn
+#                 more about configuring Vim.
+#                 Also, I encourage you to pick out the parts that you use and
+#                 understand rather thanblindly using it.
+#                 You can find me on Github: http://github.com/areisrosa
+# 
+#  Sections:
+#                 -> Customization
+#                 -> Aliases
+#                 -> Themes
+#                 -> Plugging
+#                 -> General Settings
+#
+#  =============================================================================
+#
+# Customization ------------------------------------------------------------ {{{
+#
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`, aliases for a few 
+# useful commands.
+#
+#if [ -f ~/.zshrc_local_before ]; then
+#  source ~/.zshrc_local_before
+#fi
+# # External plugins (initialized after)
+#source ~/.zsh/plugins_after
+#
+# # External plugins (initialized before)
+#source ~/.zsh/plugins_before
+#
+  for config_file ($HOME/.dotf/zsh/*.zsh) source $config_file
+#
+#}}}
+
+# Themes ------------------------------------------------------------------- {{{
+
+# Show OS info when opening a new terminal
+# Note: https://github.com/dylanaraps/neofetch
+#neofetch
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Set name of the theme to load.
+POWERLEVEL9K_MODE="nerdfont-complete"
+
+# Font mode for powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Prompt settings
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%K{#50fa7b}%k"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%K{#f0fa8b}%F{#191a21} \uf155 %f%F{#f0fa8b}%k\ue0b0%f "
+
+# Separators
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\ue0b0'
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=$'\ue0b1'
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\ue0b2'
+
+# Dir colours
+# Black and White
+POWERLEVEL9K_DIR_HOME_BACKGROUND="#191a21"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="#bd92f8"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="#191a21"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="#bd92f8"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='yellow'
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='#191a21'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+#
+# OS segment
+POWERLEVEL9K_OS_ICON_BACKGROUND="#191a21"
+POWERLEVEL9K_OS_ICON_FOREGROUND="#bd92f8"
+POWERLEVEL9K_OS_ICON_VISUAL_IDENTIFIER_COLOR="001"
+
+# Node icons
+POWERLEVEL9K_NODE_VERSION_BACKGROUND="#191a21"
+POWERLEVEL9K_NODE_VERSION_FOREGROUND="007"
+POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_COLOR="003"
+
+# Rvn icons
+POWERLEVEL9K_RVM_BACKGROUND="#191a21"
+POWERLEVEL9K_RVM_FOREGROUND="007"
+POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="001"
+
+# Load icons
+POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="#191a21"
+POWERLEVEL9K_LOAD_WARNING_BACKGROUND="#191a21"
+POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="#191a21"
+POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="007"
+POWERLEVEL9K_LOAD_WARNING_FOREGROUND="007"
+POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="007"
+POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
+POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
+
+# Ram icons
+POWERLEVEL9K_RAM_BACKGROUND="#191a21"
+POWERLEVEL9K_RAM_FOREGROUND="007"
+POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_COLOR="001"
+POWERLEVEL9K_RAM_ELEMENTS=(ram_free)
+
+# Time
+POWERLEVEL9K_TIME_BACKGROUND="#191a21"
+POWERLEVEL9K_TIME_FOREGROUND="007"
+POWERLEVEL9K_TIME_FORMAT="%D{%d.%m.%y \UF133 %H:%M}"
+
+# Battery
+POWERLEVEL9K_BATTERY_LOW_FOREGROUND='orange'
+POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='blue'
+POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='green'
+POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='red'
+POWERLEVEL9K_BATTERY_ICON=$'\uf583'
+POWERLEVEL9K_BATTERY_VERBOSE=false
+
+# User with skull
+user_with_skull() {
+    echo -n "\uf315 $(whoami)"
+}
+POWERLEVEL9K_CUSTOM_USER="user_with_skull"
+POWERLEVEL9K_CUSTOM_USER_FOREGROUND="#191a21"
+POWERLEVEL9K_CUSTOM_USER_BACKGROUND="#50fa7b"
+#POWERLEVEL9K_CUSTOM_USER_BACKGROUND="#d6acff"
+
+# Vcs icons
+POWERLEVEL9K_VCS_GIT_ICON='\uf09b'
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf09b'
+POWERLEVEL9K_VCS_GIT_GITLAB_ICON=$'\uf296 '
+POWERLEVEL9K_VCS_STAGED_ICON=$'\uf055'
+POWERLEVEL9K_VCS_UNSTAGED_ICON=$'\uf421'
+POWERLEVEL9K_VCS_UNTRACKED_ICON=$'\uf00d'
+POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=$'\uf0ab '
+POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=$'\uf0aa '
+
+# Vcs colours
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#191a21'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='green'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#191a21'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#191a21'
+
+# Vim Mode
+POWERLEVEL9K_VI_INSERT_MODE_STRING="%F{#8ae9fc} \ue7c5 %f%B%F{#50fa7b}insert%f"
+POWERLEVEL9K_VI_COMMAND_MODE_STRING="%F{#8ae9fc} \ue7c5 %f%B%F{#f8f8f2}normal%f"
+
+# Vcs config
+POWERLEVEL9K_SHOW_CHANGESET=false
+
+# Status
+POWERLEVEL9K_OK_ICON=$'\uf164'
+POWERLEVEL9K_FAIL_ICON=$'\uf165'
+POWERLEVEL9K_CARRIAGE_RETURN_ICON=$'\uf165'
+
+# Command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Prompt elements
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+    status
+    os_icon
+    custom_user
+    dir
+    vcs
+    virtualenv
+)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+    vi_mode
+)
+# }}}
+
+# Pluggings ---------------------------------------------------------------- {{{
+#
+# Which plugins would you like to load? (plugins can be found in
+# ~/.oh-my-zsh/plugins/*) Custom plugins may be added to
+# ~/.oh-my-zsh/custom/plugins/ Example format: plugins=(rails git textmate ruby
+# lighthouse) Add wisely, as too many plugins slow down shell startup.
+bgnotify_threshold=4  ## set your own notification threshold
+
+function bgnotify_formatted {
+  ## $1=exit_status, $2=command, $3=elapsed_time
+  [ $1 -eq 0 ] && title="Holy Smokes Batman!" || title="Holy Graf Zeppelin!"
+  bgnotify "$title -- after $3 s" "$2";
+}
+
+# Command execution time stamp shown in the history command output.
+DISABLE_LS_COLORS="true"
+HIST_STAMPS="mm/dd/yyyy"
+
+fpath=(~/.dotf/zsh/plugins/zsh-completions/src $fpath)
+source $HOME/.dotf/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.dotf/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.dotf/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+plugins=(
+  history-substring-search
+  virtualenv
+  colorize
+  vi-mode
+  asdf
+  fzf
+)
+#}}}
+
+# General Settings -------------------------------------------------------- {{{
+
+# Source Oh My Zsh
+source $HOME/.dotf/config/oh-my-zsh/oh-my-zsh.sh
+
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
+
+# Vim mode
+set -o vi
+
+# Use vim style line editing in zsh
+# (https://vim.fandom.com/wiki/Use_vi_shortcuts_in_terminal)
+bindkey -v
+
+# Edit line
+bindkey -a '^V' edit-command-line
+
+# Allow gg and ctrl-g to move at the beginning/end history
+bindkey -a 'gg' beginning-of-buffer-or-history
+bindkey -a 'G' end-of-buffer-or-history
+
+# Allow u and ctrl-u to undo and redo
+bindkey -a 'u' undo
+bindkey -a '^U' redo
+
+# Allow ctrl-a and ctrl-e to move to beginning/end of line
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+# Make numpad enter work
+bindkey -s "^[Op" "0"
+bindkey -s "^[Ol" "."
+bindkey -s "^[OM" "^M"
+
+# Grv is currently an alias used by oh-my-zsh. Add unalias grv to the end of your .zshrc to invoke GRV.
+# https://github.com/rgburke/grv
+#unalias grv
+
+# Asdf
+. $HOME/.asdf/asdf.sh
+
+# Git and GitHub
+eval "$(hub alias -s)"
+
+# Fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#}}}

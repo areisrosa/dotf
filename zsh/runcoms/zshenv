@@ -1,0 +1,47 @@
+# ~/.zsh/zshenv
+
+# Remove duplicate entries from PATH:
+PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
+
+# Enviroment Variables
+export LC_ALL="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export ZSH="$HOME/.oh-my-zsh"
+
+# Asdf
+export PATH="$HOME/.asdf/shims:$PATH"
+export PATH="/opt/adr-tools-3.0.0/src:$PATH"
+
+# Snap
+export PATH="/snap/bin:$PATH"
+
+# Node and Asdf
+export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+
+# Pip (Variables Enviroment)
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Go Workspace
+export GOPATH="$HOME/workspace/go:$GOPATH"
+
+# Rust and Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Git Token from GitHub - https://moox.io/blog/keep-in-sync-git-repos-on-github-gitlab-bitbucket/
+if [[ -f $HOME/.github_token ]]
+then
+  export GITHUB_TOKEN=$(cat $HOME/.github_token)
+fi
+
+# Git Token from GitLab - https://moox.io/blog/keep-in-sync-git-repos-on-github-gitlab-bitbucket/
+if [[ -f $HOME/.gitlab_token ]]
+then
+  export GITLAB_API_PRIVATE_TOKEN=$(cat $HOME/.gitlab_token)
+fi
+export GITLAB_API_ENDPOINT="https://gitlab.com/api/v3"
+
+# Editor
+export EDITOR=nvim
+export VISUAL=nvim

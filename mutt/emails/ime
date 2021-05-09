@@ -1,0 +1,32 @@
+# --------------------------------------------------------------------------
+# IME HANDLER
+# --------------------------------------------------------------------------
+unset postponed
+unmailboxes *
+
+set folder      = imaps://imap.ime.usp.br/
+set imap_user   = <YOUR EMAIL>@ime.usp.br
+set imap_pass   = 'YOUR PASSWORD'
+
+mailboxes =INBOX
+set spoolfile   = +INBOX
+mailboxes imaps://imap.ime.usp.br/INBOX imaps://imap.ime.usp.br/conference \
+          imaps://imap.ime.usp.br/debian imaps://imap.ime.usp.br/interessantes \
+          imaps://imap.ime.usp.br/notspam imaps://imap.ime.usp.br/others \
+          imaps://imap.ime.usp.br/other imaps://imap.ime.usp.br/spam \
+          imaps://imap.ime.usp.br/usp_geral
+
+# SMTP config
+set ssl_starttls = yes
+unset record
+
+set realname = 'YOUR REAL NAME'
+set from = YOUR_EMAIL@ime.usp.br
+set hostname="ime.usp.br"
+set use_from = yes
+
+set smtp_url=smtp://$imap_user:$imap_pass@smtp.ime.usp.br:587/
+set ssl_force_tls = yes
+
+## Hook -- IMPORTANT!
+account-hook $folder "set imap_user=YOUR_EMAIL@ime.usp.br imap_pass=YOUR PASSWORD"

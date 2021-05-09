@@ -1,0 +1,14 @@
+" =============================================================================
+" Navegation -------------------------------------------------------------- {{{
+" =============================================================================
+Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar' 
+"Plug 'osyo-manga/vim-over' 
+Plug 'zoubin/vim-gotofile'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'

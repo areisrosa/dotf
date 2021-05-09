@@ -1,0 +1,37 @@
+# --------------------------------------------------------------------------
+# GMAIL HANDLER
+# --------------------------------------------------------------------------
+unmailboxes *
+unset ssl_starttls
+
+set folder      = imaps://imap.gmail.com/
+set imap_user   = <andersonreisrosa@gmail.com>
+#set imap_pass   = $passwords
+mailboxes =INBOX
+set spoolfile   = +INBOX
+
+mailboxes "+Forums" "+Social" "+Updates" "+Promotions" \
+          "+KernelJanitors" "+Kernelnewbies"  "+MyAcademicStuffs" \
+          "+Conferencias" "+SitesCadastradoGeral" "+CoisasInteressantes" \
+          "+[Gmail]/Sent Mail" "+[Gmail]/Spam" "+[Gmail]/Drafts" "+[Gmail]/Lixeira"  \
+          "+linux-iio" \
+          "+linux-crypto"
+#set imap_check_subscribed
+
+# Specify where to save and/or look for postponed messages.
+
+# SMTP config
+unset record
+set postponed = "+[Gmail]/Drafts"
+
+#set smtp_pass = $passwords
+set realname = 'Anderson Reis'
+set from = andersonreisrosa@gmail.com
+set hostname="smtp.gmail.com"
+set use_from = yes
+
+set smtp_url="smtps://andersonreisrosa@smtp.gmail.com:465/"
+
+# Connection options
+account-hook $folder "set imap_user=andersonreisrosa@gmail.com imap_pass
+

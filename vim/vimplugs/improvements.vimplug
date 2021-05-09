@@ -1,0 +1,60 @@
+" =============================================================================
+" Improvements  ----------------------------------------------------------- {{{
+" =============================================================================
+" Vim
+Plug 'terryma/vim-multiple-cursors'
+Plug 'rstacruz/sparkup'
+Plug 'edkolev/tmuxline.vim'
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-projectionist'
+Plug 'takac/vim-commandcaps'
+"Plug 'tomtom/tcomment_vim'
+if !has('nvim')
+	Plug 'rhysd/vim-healthcheck'
+endif
+if !has('nvim')
+	Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'RRethy/vim-illuminate'
+Plug 'cometsong/CommentFrame.vim'
+Plug 'neomake/neomake'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript'] }
+Plug 'ujihisa/neco-look'
+Plug 'godoctor/godoctor.vim'
+Plug 'embear/vim-localvimrc'
+"Plug 'mbbill/undotree'
+Plug 'chrisbra/Recover.vim'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'skwp/YankRing.vim'
+"Plug 'vim-scripts/camelcasemotion'
+Plug 'sjl/gundo.vim'
+Plug '907th/vim-auto-save'
+Plug 'jeetsukumaran/vim-buffergator'
+"Plug 'ncm2/ncm2'
+Plug 'jiangmiao/auto-pairs'
+" NeoVim
+if has("nvim")
+Plug 'bfredl/nvim-miniyank'
+endif
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-denite'
+Plug 'roxma/nvim-yarp'
+Plug 'vim-scripts/sudo.vim'
+Plug 'goldfeld/ctrlr.vim'

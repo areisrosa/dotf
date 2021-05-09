@@ -1,0 +1,12 @@
+" =============================================================================
+" Appearance Plugs -------------------------------------------------------- {{{
+" =============================================================================
+"Plug 'Dave-Elec/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'areisrosa/vim', { 'as': 'dracula' }
+Plug 'areisrosa/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+Plug 'kristijanhusak/defx-icons'
+Plug 'chrisbra/color_highlight'
+Plug 'chriskempson/base16-vim'

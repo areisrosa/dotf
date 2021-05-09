@@ -1,0 +1,174 @@
+# --------------------------------------------------------------------------
+# BASIC OPTIONS
+# --------------------------------------------------------------------------
+set editor = "vim"
+
+# Speedups
+set header_cache = "~/.cache/mutt-headers"
+set message_cachedir = "~/.cache/mutt-bodies"
+
+# Allow Mutt to open a new IMAP connection automatically.
+unset imap_passive
+
+# Keep the IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 300
+
+# How often to check for new mail (time in seconds).
+set mail_check = 100
+
+set wait_key = no        # shut up, mutt
+set timeout = 3          # idle time before scanning
+unset move               # gmail does that
+set delete               # don't ask, just do
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+unset mark_old           # read/new is good enough for me
+set beep_new             # bell on new mails
+set pipe_decode          # strip headers and eval mimes when piping
+set thorough_search      # strip headers and eval mimes before searching
+
+
+#source "~/.mutt/themes/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc"
+source "~/.mutt/themes/mutt-colors-dracula/dracula.muttrc
+source "gpg -d ~/.mutt/passwords.gpg |"
+# --------------------------------------------------------------------------
+# ACCOUNTS
+# --------------------------------------------------------------------------
+# IME
+#source "~/.mutt/ime"
+#folder-hook YOUR_FIRST_EMAIL@ime.usp.br/ 'source ~/.mutt/emails/ime'
+
+# GMAIL
+source "~/.mutt/emails/gmail"
+folder-hook $folder 'source ~/.mutt/emails/gmail'
+
+## Account shortcuts
+macro index,pager <f2> '<sync-mailbox><refresh><enter-command>source ~/.mutt/emails/gmail<enter><change-folder>!<enter>'
+#macro index,pager <f3> '<sync-mailbox><refresh><enter-command>source ~/.mutt/ime<enter><change-folder>!<enter>'
+
+# Fetch mail shortcut
+bind index G imap-fetch-mail
+
+# --------------------------------------------------------------------------
+# HANDLING LINKS AND OPEN FILES
+# --------------------------------------------------------------------------
+set mailcap_path        = ~/.mutt/mailcap
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
+# --------------------------------------------------------------------------
+# PAGER VIEW OPTIONS
+# --------------------------------------------------------------------------
+ignore *
+unignore from date subject to cc
+unignore organization organisation x-mailer: x-newsreader: x-mailing-list:
+unignore posted-to:
+unignore Message-Id
+unignore Content-Type
+
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# --------------------------------------------------------------------------
+# PAGER KEY BINDINGS
+# --------------------------------------------------------------------------
+bind pager k  previous-line
+bind pager j  next-line
+bind pager g noop
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+# --------------------------------------------------------------------------
+# INDEX KEY BINDINGS
+# --------------------------------------------------------------------------
+bind index g  noop
+bind index gg first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# --------------------------------------------------------------------------
+# INDEX VIEW OPTIONS
+# --------------------------------------------------------------------------
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads                         # like gmail
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# --------------------------------------------------------------------------
+# STATUS BAR
+# --------------------------------------------------------------------------
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# --------------------------------------------------------------------------
+# HEADER OPTIONS
+# --------------------------------------------------------------------------
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
+# --------------------------------------------------------------------------
+# SIDEBAR NAVIGATION
+# --------------------------------------------------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# --------------------------------------------------------------------------
+# SIDEBAR CONFIGURATION
+# --------------------------------------------------------------------------
+# Sidebar Patch
+set sidebar_visible = yes
+set sidebar_width   = 24
+
+set sidebar_divider_char = '|'
+
+# Note: This is a general NeoMutt option which colors all selected items.
+color indicator black yellow
+# Color of the highlighted, but not open, mailbox.
+color sidebar_highlight black red
+# Color of the divider separating the Sidebar from NeoMutt panels
+color sidebar_divider blue black
+# Color to give mailboxes containing flagged mail
+color sidebar_flagged red black
+# Color to give mailboxes containing new mail
+color sidebar_new green black
+# Color to give mailboxes containing no new/flagged mail, etc.
+# color sidebar_ordinary yellow default
+
+# --------------------------------------------------------------------------
+# ABOOK
+# --------------------------------------------------------------------------
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
+
+# --------------------------------------------------------------------------
+# vim: syntax=neomuttrc

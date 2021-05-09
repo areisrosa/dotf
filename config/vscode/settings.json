@@ -1,0 +1,116 @@
+{
+  "files.autoSave": "afterDelay",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "bracketPairColorizer.forceIterationColorCycle": true,
+  "breadcrumbs.enabled": true,
+  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.fontSize": 18,
+  "editor.lineNumbers": "relative",
+  "editor.tabSize": 4,
+  "debug.console.fontSize": 20,
+  "window.zoomLevel": 0,
+  "window.menuBarVisibility": "toggle",
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "workbench.colorTheme": "Gruvbox Dark (Hard)",
+  "workbench.activityBar.visible": true,
+  "workbench.statusBar.visible": true,
+  "workbench.colorCustomizations": {
+    "tab.activeBorder": "#282828",
+    "statusBar.foreground": "#ebdbb2",
+    "statusBar.background": "#282828",
+    "statusBar.noFolderBackground": "#222225",
+    "statusBar.debuggingBackground": "#511f1f",
+    "terminal.background": "#1D2021",
+    "terminal.foreground": "#f9f8f5",
+    "terminalCursor.background": "#5F574F",
+    "terminalCursor.foreground": "#f4511e",
+    "terminal.ansiBlack": "#282828",
+    "terminal.ansiBlue": "#22c3a1",
+    "terminal.ansiBrightBlack": "#008751",
+    "terminal.ansiBrightBlue": "#22c3a1",
+    "terminal.ansiBrightCyan": "#84edb9",
+    "terminal.ansiBrightGreen": "#00E756",
+    "terminal.ansiBrightMagenta": "#FF77A8",
+    "terminal.ansiBrightRed": "#FF004D",
+    "terminal.ansiBrightWhite": "#FFF1E8",
+    "terminal.ansiBrightYellow": "#d4d232",
+    "terminal.ansiCyan": "#22c3a1",
+    "terminal.ansiGreen": "#d4d232",
+    "terminal.ansiMagenta": "#FF77A8",
+    "terminal.ansiRed": "#FF004D",
+    "terminal.ansiWhite": "#f9f8f5",
+    "terminal.ansiYellow": "#d4d232"
+  },
+  "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "helium-icon-theme",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "welcomePage",
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
+  "terminal.integrated.fontWeightBold": "normal",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontSize": 20,
+  "terminal.integrated.rightClickCopyPaste": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  "vim.easymotion": true,
+  "vim.easymotionMarkerFontSize": "17",
+  "vim.easymotionMarkerWidthPerChar": 10,
+  "vim.easymotionMarkerHeight": 20,
+  "vim.easymotionMarkerYOffset": 7,
+  "vim.easymotionMarkerFontWeight": "bold",
+  "vim.easymotionMarkerBackgroundColor": "rgba(68, 68, 68, 0.9)",
+  "vim.easymotionMarkerForegroundColorOneChar": "#FFF",
+  "vim.easymotionMarkerForegroundColorTwoChar": "#CDCDCD",
+  "vim.sneak": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.leader": ",",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "after": [
+        "d",
+        "d"
+      ]
+    },
+    {
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  }
+}

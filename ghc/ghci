@@ -1,0 +1,37 @@
+-- Flags {{{
+:set -XBinaryLiterals
+:set -XFlexibleContexts
+:set -XNoMonomorphismRestriction
+-- }}}
+
+-- Interactive-only flags {{{
+:seti -XConstraintKinds
+:seti -XDataKinds
+:seti -XDeriveFunctor
+:seti -XFlexibleInstances
+:seti -XFunctionalDependencies
+:seti -XGADTs
+:seti -XLambdaCase
+:seti -XMultiParamTypeClasses
+:seti -XMultiWayIf
+:seti -XPackageImports
+:seti -XPolyKinds
+:seti -XRankNTypes
+:seti -XStandaloneDeriving
+:seti -XTupleSections
+:seti -XTypeFamilies
+:seti -XTypeOperators
+:seti -XUndecidableInstances
+-- }}}
+
+-- GHCi default options {{{
+:set +c
+:set +m
+:set +r
+-- :set +t
+-- }}}
+
+:set prompt      "λ » "
+:set prompt-cont "    …  "
+
+-- vim:filetype=haskell:expandtab:tabstop=4:shiftwidth=4

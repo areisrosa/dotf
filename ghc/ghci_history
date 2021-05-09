@@ -1,0 +1,35 @@
+length[1,2,3]
+tail[1,2,3]
+head [1,2,3]
+:t a
+a
+a = 10 :: Int
+:t map
+f 5
+:}
+f x = x + f (x -1)
+f 0 = 0
+:{
+!"
+main :: IO()
+module Main (main) where
+:{
+min = putStrLn "Hello, World!"
+main :: IO()
+module Main (main) where
+c
+clear
+fatorial::Integer -> Integer
+fatorial :: Integer -> Integer
+olamundo
+olamundo = putStrLn "Olá, Mundo"
+olamundo
+olamundo = putStrLn "Olá"
+olamundo :: IO()
+fat 3
+fat 5
+fat 2
+:}
+fat n | n > 0 = n*fat(n-1)
+fat 0 = 1
+:{

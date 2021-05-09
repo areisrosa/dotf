@@ -1,0 +1,17 @@
+" =============================================================================
+" Languages Plugs --------------------------------------------------------- {{{
+" =============================================================================
+Plug 'sheerun/vim-polyglot'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-syntastic/syntastic'
+Plug 'shime/vim-livedown' 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'cohama/lexima.vim'
+Plug 'honza/vim-snippets'
+Plug 'turbio/bracey.vim'
+Plug 'iovis/browsers_castle'
+Plug 'skwp/vim-html-escape'
+Plug 'jparise/vim-graphql'

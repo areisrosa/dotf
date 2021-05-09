@@ -1,0 +1,1 @@
+/home/areis/.scripts/polybar/bars/launch.sh

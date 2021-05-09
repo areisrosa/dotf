@@ -1,0 +1,181 @@
+[include]
+    path = ~/.gitconfig.local
+[alias]
+    exec = ! "exec"
+  # add
+    a = add                           # add
+    chunkyadd = add --patch           # stage commits chunk by chunk
+    aa = add --all :/                 #
+
+  # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+    snapshots = !git stash list --grep snapshot
+
+  # via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
+    recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+
+  # branch
+    b   = branch -v                   # branch (verbose)
+    ba  = branch -vv --all
+    bed = branch --edit-description
+
+  # commit
+    c = commit -m                     # commit with message
+    ca = commit -am                   # commit all with message
+    ci = commit                       # commit
+    amend = commit --amend            # ammend your last commit
+    ammend = commit --amend           # ammend your last commit
+    save = commit -a -m "Save"
+
+  # checkout
+    co  = checkout                     # checkout
+    nb  = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
+
+  # cherry-pick
+    cp = cherry-pick -x               # grab a change from a branch
+
+  # diff
+    d = diff                          # diff unstaged changes
+    dc = diff --cached                # diff staged changes
+    dcs = diff --cached --stat
+    dcw = diff --cached --color-words
+    dh = diff HEAD~
+    dhs = diff HEAD~ --stat
+    dhw = diff HEAD~ --color-words
+    du = diff @{u}...
+    dus = diff @{u}... --stat
+    duw = diff @{u}... --color-words
+    dis = diff --stat
+    diw = diff --color-words
+    last = diff HEAD^                 # diff last committed change
+    count = diff --stat "4b825dc642cb6eb9a060e54bf8d69288fbee4904" # hash of empty tree
+
+  # fetch
+    f = fetch --tags --prune
+    fa = fetch --all --tags --prune
+
+  # log
+    l = log --graph --date=short
+    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+    simple = log --pretty=format:\" * %s\"
+    shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+
+  # merge
+    ff = merge --ff-only
+    noff = merge --no-ff
+    credit = shortlog -sn
+    cc = rev-list HEAD --count
+    cca = rev-list --all --count
+    cleanall = clean -fdx # this is dangerous, so it's intentionally long to type
+    empty-tree-hash = hash-object -t tree /dev/null
+    root = rev-parse --show-toplevel
+    grp = grep -C 1
+
+  # pull
+    pl = pull                         # pull
+
+  # push
+    ps = push                         # push
+
+  # rebase
+    rc = rebase --continue            # continue rebase
+    rs = rebase --skip                # skip rebase
+
+  # remote
+    r = remote -v                     # show remotes (verbose)
+
+ # reset
+    unstage = reset HEAD              # remove files from index (tracking)
+    uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+    filelog = log -u                  # show changes to a file
+    mt = mergetool                    # fire up the merge tool
+
+  # stash
+    ss = stash                        # stash changes
+    sl = stash list                   # list stashes
+    sa = stash apply                  # apply stash (restore changes)
+    sd = stash drop                   # drop stashes (destory changes)
+    ski = stash --keep-index
+    siu = stash --include-untracked
+
+  # status
+    s = status                        # status
+    st = status                       # status
+    stsb = status -sb
+    stat = status                     # status
+
+  # show
+    sf = show --format=fuller --show-signature
+    sfw = show --format=fuller --color-words
+    sfs = show --format=fuller --stat
+    showtool = ! "st() { if [ -z $1  ]; then c='HEAD'; else c=$1; fi; git difftool $c~..$c;  }; st"
+
+  # submodule
+    update-submodules = submodule update --init --recursive
+    upgrade-submodules = submodule update --init --remote
+
+  # tag
+    t = tag -n                        # show tags with <n> lines of each tag message
+    tar = ! "tar() { git archive --format tar --prefix=\"${PWD##*/}/\" HEAD -o ${1};  }; tar"
+    targz = ! "targz() { git archive --format tar.gz --prefix=\"${PWD##*/}/\" HEAD -o ${1};  }; targz"
+    versions = tag -l --sort=version:refname
+    ctags = ! "ctg() { trap \"rm -f .git/tags.$$\" EXIT; ctags --tag-relative -Rf.git/tags.$$ --exclude=.git; mv .git/tags.$$ .git/tags;  }; ctg"
+    zip = ! "zip() { git archive --format zip --prefix=\"${PWD##*/}/\" HEAD -o ${1};  }; zip"
+    cleanall = clean -fdx # this is dangerous, so it's intentionally long to type
+    info = ! "inf() { if git rev-parse ${1} >/dev/null 2>&1; then git cat-file -p $(git rev-parse ${1}); else echo Invalid object; fi  }; inf"
+    mirror-remote = ! "mr() { git push \"${2}\" \"refs/remotes/${1}/*:refs/heads/*\" && git remote set-head \"${2}\" -a;  }; mr"
+    linecredit = ! "lc() { git ls-tree --name-only -z -r HEAD | xargs -0 -n1 git diff --no-index --numstat /dev/null 2>/dev/null | grep -v '^-' | cut -f 3- | cut -d ' ' -f 3- | xargs -n1 git blame --line-porcelain | grep '^author ' | cut -d ' ' -f 2- | sort | uniq -c | sort -nr;  }; lc"
+
+  # svn helpers
+    svnr = svn rebase
+    svnd = svn dcommit
+    svnl = svn log --oneline --show-commit
+[diff]
+    mnemonicPrefix = true
+    wordRegex = "[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
+    compactionHeuristic = true
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+[color]
+    ui = auto
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added     = yellow bold
+    branch    = yellow bold
+    changed   = cyan bold
+    deleted   = red bold
+    untracked = magenta bold
+[color "grep"]
+    match = cyan bold
+    selected = blue
+    context = normal
+    filename = magenta
+    linenumber = green
+    separator = yellow
+    function = blue
+[pretty]
+    line = "%C(auto)%h%d %s %C(yellow)by %C(blue)%an %C(green)%ar"
+    compact = "%C(auto)%h %s %C(green)%ar%n %C(auto)%d%n"
+    detail = "%C(auto)%h %s%n  %C(yellow)by %C(blue)%an %C(magenta)<%ae> [%G?] %C(green)%ar%n %C(auto)%d%n"
+[merge]
+    defaultToUpstream = true
+    tool = vimdiff
+[mergetool]
+    keepBackup = false
+[pull]
+    ff = only
+[push]
+    default = matching
+[grep]
+    lineNumber = true
+[advice]
+    detachedHead = false
+    waitingForEditor = false
+[cola]
+    spellcheck = false

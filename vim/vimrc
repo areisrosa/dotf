@@ -1,0 +1,197 @@
+" ==============================================================================
+"
+" |  \/  (_) |             | | | (_)
+" | .  . |_| | _____  ___  | | | |_ _ __ ___  _ __ ___
+" | |\/| | | |/ / _ \/ __| | | | | | '_ ` _ \| '__/ __|
+" | |  | | |   <  __/\__ \ \ \_/ / | | | | | | | | (__
+" \_|  |_/_|_|\_\___||___/  \___/|_|_| |_| |_|_|  \___|)
+"
+" ==============================================================================
+"  ===                    Settings from my computer :)                ===
+" "
+" " Author:        Anderson Reis
+" "
+" " Editor:        Vim
+" "
+" " Terminal:      Kitty
+" "
+" " OS:            Debian (Gnu/Linux)
+" "
+"   Shell:         Zsh
+" "
+" " Description:   This is the personal vimrc and init.vim file. I've tried to
+" "                document every option and item. Feel free to use it to learn
+" "                more about configuring Vim.
+" "                Also, I encourage you to pick out the parts that you use and
+" "                understand rather than blindly using it.
+" "                You can find me on Github: http://github.com/areisrosa
+" "
+" " Sections:
+" "                -> General Configurations
+" "
+"
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
+" source ~/.vimrc.before if it exists.
+if filereadable(expand("~/.dotf/vim/before/plugin/vimrc_before.vim"))
+  source ~/.dotf/vim/before/plugin/vimrc_before.vim
+endif
+
+if filereadable(expand("~/.vimrc.before"))
+    source ~/.vimrc.before
+endi
+
+" =============================================================================
+" General Configurations -------------------------------------------------- {{{
+" =============================================================================
+
+" ======================== Rules ==============================================
+set number " Enable line numbers
+set relativenumber             "It is sometimes useful to display line numbers in the left margin, for reference
+set backspace=indent,eol,start "Allows the backspace to delete indenting, end of lines, and over the start of insert"
+" increase the undo limit.
+if &history < 1000
+  set history=1000
+endif
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+" or
+"set noshowcmd                  " No to showing command in bottom-right corner
+"set noshowmode                 " Suppress mode change messages (No to showing mode in bottom-left corner)
+"
+"set gcr=a:blinkon0             "Disable cursor blink
+set visualbell                  "No sounds
+" or
+" set noerrorbells visualbell t_vb= " No annoying sound on errors
+"
+set autoread                    "Reload files changed outside automatically
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden                      "Enable hidden buffers
+syntax on                       "Turn on syntax highlighting
+" Set Leader to Space
+" Change leader to a comma because the backslash is too far away
+" That means all \x commands turn into ,x
+" The mapleader has to be set before vim-plug starts loading all
+" the plugins.
+let mapleader = ","
+
+" ======================== Vim Plug Indentation ===============================
+" Load Vim Plug
+" This loads all the plugins specified in ~/.vim/vimplugs.vim
+" Use Vim-Plug to manage all other plugins
+if filereadable(expand("~/.vim/vimplugs.vim"))
+  source ~/.vim/vimplugs.vim
+endif
+au BufNewFile,BufRead *.vimplug set filetype=vim
+
+" ======================= Turn Off Swap Files =================================
+set noswapfile "Swap files in to fixed location
+set nobackup
+set nowb
+" or
+" ======================= Directory To Store Swap Files =======================
+"set directory=/var/tmp/vim//,.
+" backup files in to fixed location
+"set backup
+"set backupcopy=yes
+"set backupdir=/var/tmp/vim//,.
+
+" ======================== Persistent Undo ====================================
+" Persistent undo undofile in to fixed location.
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" ======================== Indentation ========================================
+set autoindent    " Enable auto indent
+set smartindent   " Smart indent
+"set nosmartindent " Disable smart indent
+set smarttab      " Be smart when using tabs
+set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
+set tabstop=4     " Number of spaces that a <Tab> in the file counts for
+set expandtab     " Use the appropriate number of spaces to insert a <Tab>
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+filetype plugin on
+filetype indent on
+set nowrap        " Don't wrap lines
+set linebreak     " Wrap lines at convenient points
+" Display tabs and trailing spaces visually
+if has('multi_byte') && &encoding ==# 'utf-8'
+  set list
+  let &listchars = 'trail:·,tab:»·,extends:→,precedes:←,nbsp:×'
+  let &fillchars = 'stl: ,stlnc: ,vert:│'
+
+  if has('patch-7.4.338')
+    let &showbreak = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
+    set breakindent
+    set breakindentopt=sbr
+  endif
+endif
+
+" ======================== Folds ==============================================
+set foldmethod=indent "Simple and fast (fold based on indent)
+set foldnestmax=3     "Deepest fold is 3 levels
+set nofoldenable      "Dont fold by default
+
+ " ====================== Completion =========================================
+set wildmode=list:longest,list:full
+set wildmenu          "Turn on the Wild menu (enable ctrl-n and ctrl-p to scroll thru matches)
+set wildignore+=.DS_Store,__pycache__,tmp/**,*.log,.bundle/**,node_modules/**,env/**
+set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,*.gem
+set wildignore=.git/**,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.xpm,*.gifi
+set wildignore+=*.png,*.jpg,*.jpeg,*.tiff,*.gif,*.svg,*.psd,*.pdf,.svn,CVS
+set wildignore+=*vim/backups*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=log/**
+
+" ================ Scrolling ==================================================
+if !&scrolloff        "Start scrolling when we're 8 lines away from margins
+  set scrolloff=8
+endif
+if !&sidescrolloff
+  set sidescrolloff=15
+endif
+if !&sidescroll
+  set sidescroll=1
+endif
+
+" =========================== Search ==========================================
+set incsearch    " Show search matches while typing set (go to search results immediately)
+set hlsearch     " Highlight search terms (very useful!)
+"set nohlsearch  " Don't highlight search results by default
+set ignorecase   " Ignore case when searching (searches are Non Case-sensitive)
+set smartcase    " Case-smart searching, unless we type a capital (do smart case
+                 " matching when searching)
+
+" =========================== Security ========================================
+set modelines=0  "Make Vim only use folding settings for current file
+set nomodeline   "Bug Vim/Neovim Arbitrary Code Execution via Modelines
+
+" ========================= Custom Settings ===================================
+source ~/.vim/settings.vim
+
+" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
+" source ~/.vimrc.after if it exists.
+if filereadable(expand("~/.dotf/vim/after/plugin/vimrc_after.vim"))
+  source ~/.dotf/vim/after/plugin/vim_after.vim
+endif
+
+if filereadable(expand("~/.vimrc.after"))
+    source ~/.vimrc.after
+endif
+
+"}}}
+

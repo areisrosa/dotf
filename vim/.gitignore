@@ -1,0 +1,6 @@
+tags
+*~
+*.sw[abcdefghijklmnopqrstuvxz]
+.VimballRecord
+view
+

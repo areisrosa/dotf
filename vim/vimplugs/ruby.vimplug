@@ -1,0 +1,29 @@
+" ==============================================================================
+" Ruby Plugins ------------------------------------------------------------- {{{
+" ==============================================================================
+"
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-rvm'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'vim-ruby/vim-ruby'
+Plug 'skwp/vim-iterm-rspec'
+Plug 'skwp/vim-spec-finder'
+"Plug 'ck3g/vim-change-hash-syntax'
+Plug 'keith/rspec.vim'
+"Plug 'thoughtbot/vim-rspec'
+Plug 'janko-m/vim-test'
+Plug 'sunaku/vim-ruby-minitest'
+"
+"}}}
+

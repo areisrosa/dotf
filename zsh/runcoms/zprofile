@@ -1,0 +1,13 @@
+# ~/.zsh/zprofile
+
+# Startx when logged in
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    exec ssh-agent startx
+fi
+
+# Startx when logged in terminal via ssh
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='mvim'
+fi

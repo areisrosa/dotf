@@ -1,0 +1,10 @@
+" =============================================================================
+" Git Plugins ------------------------------------------------------------- {{{
+" =============================================================================
+"Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'chrisbra/vim-diff-enhanced'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-rhubarb'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
