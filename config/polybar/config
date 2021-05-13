@@ -1,4 +1,4 @@
-;===========================================================================
+;==============================================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -14,51 +14,51 @@
 ;
 ;   The README contains a lot of information
 ;
-;===========================================================================
+;==============================================================================
 ;                       Settings from my computer :)
-;===========================================================================
-;   Author:        Anderson Reis
-;  
-;   Verison:       Vim
-;  
-;   Terminal:      Kitty
-;  
-;   OS:            Debian
-;  
-;   Shell:         Zsh
-;  
-;   Description:   This is the personal polybar config. I've tried to
-;                  document every option and item. Feel free to use it to learn
-;                  more about configuring.
-;                  Also, I encourage you to pick out the parts that you use and
-;                  understand rather than blindly using it.
-;                  You can find me on Github: http://github.com/areisrosa
-;  
-;   Sections:
-;                  -> Colors
-;                  -> Global
-;                  -> Fonts
-;                  -> Modules Layout
-;                  -> Workspace
-;                  -> Ws icons
-;                  -> Xwindow
-;                  -> Backlight
-;                  -> Date
-;                  -> Volume
-;                  -> Battery
-;                  -> Mpd
-;                  -> Spotify
-;                  -> Memory
-;                  -> Cpu
-;                  -> Network
-;                  -> Temperature
-;                  -> Powermenu
-;  
-;===========================================================================
+;==============================================================================
+;  Author:        Anderson Reis
 ;
-;---------------------------------------------------------------------------
-;		                          COLORS
-;---------------------------------------------------------------------------
+;  Verison:       Vim
+;
+;  Terminal:      Kitty
+;
+;  OS:            Debian
+;
+;  Shell:         Zsh
+;
+;  Description:   This is the personal polybar config. I've tried to
+;                 document every option and item. Feel free to use it to learn
+;                 more about configuring.
+;                 Also, I encourage you to pick out the parts that you use and
+;                 understand rather than blindly using it.
+;                 You can find me on Github: http://github.com/areisrosa
+;
+;  Sections:
+;                 -> Colors
+;                 -> Global
+;                 -> Fonts
+;                 -> Modules Layout
+;                 -> Workspace
+;                 -> Ws icons
+;                 -> Xwindow
+;                 -> Backlight
+;                 -> Date
+;                 -> Volume
+;                 -> Battery
+;                 -> Mpd
+;                 -> Spotify
+;                 -> Memory
+;                 -> Cpu
+;                 -> Network
+;                 -> Temperature
+;                 -> Powermenu
+;
+; =============================================================================
+;
+;------------------------------------------------------------------------------
+;                              COLORS
+;------------------------------------------------------------------------------
 [colors]
 black          = #263238
 white          = #d8dee9
@@ -160,66 +160,19 @@ modules-right  = temperature cpu memory filesystem backlight weather battery vpn
 ;------------------------------------------------------------------------------
 [module/i3]
 type = internal/i3
-; Only show workspaces defined on the same output as the bar
-; Useful if you want to show monitor specific workspaces
-; on different bars
-; use: pin-workspaces = true
-; Default: false
 pin-workspaces  = true
-
-; This will split the workspace name on ':'
-; Default: false
 strip-wsnumbers = true
-
-; Sort the workspaces by index instead of the default
-; sorting that groups the workspaces by output
-; Default: false
 index-sort = true
-
-; Create click handler used to focus workspace
-; Default: true
 enable-click = true
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
 enable-scroll   = true
-
-; Wrap around when reaching the first/last workspace
-; Default: true
 wrapping-scroll = true
-
-; Set the scroll cycle direction 
-; Default: true
 reverse-scroll  = false
-
-; Use fuzzy (partial) matching on labels when assigning 
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces 
-; containing 'code' in the label
-; Default: false
 fuzzy-match = true
-
-; Formats
-; Available tags:
-;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
-;   <label-mode> (default)
 format = <label-state> <label-mode>
 
-; Labels
-; Available tokens:
-;   %mode%
-; Default: %mode%
 label-mode            = %mode%
 label-mode-padding    = 1
 label-mode-background = ${colors.pink2}
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-; Focused = Active workspace on focused monitor
 label-focused              = %icon%
 label-focused-foreground   = ${colors.violet}
 label-focused-background   = ${colors.black}
@@ -230,18 +183,15 @@ label-unfocused-foreground = ${colors.white}
 label-unfocused-background = ${colors.black}
 label-unfocused-padding    = 1
 
-; Visible = Active workspace on unfocused monitor
 label-visible            = %icon%
 label-visible-foreground = ${self.label-focused-foreground}
 label-visible-background = ${self.label-focused-background}
 ;label-visible-underline = ${self.label-focused-underline}
 label-visible-padding    = ${self.label-focused-padding}
 
-; Urgent = Workspace with urgency hint set
 label-urgent            = %icon%
 label-urgent-foreground = ${colors.pink2}
 label-urgent-background =
-;label-urgent-underline = ${colors.black}
 label-urgent-padding    = 1
 ;------------------------------------------------------------------------------
 ;	                              WS ICONS
@@ -261,22 +211,13 @@ ws-icon-9       = 0;Pop 嵐
 ;------------------------------------------------------------------------------
 [module/xwindow]
 type = internal/xwindow
-
-; Available tags:
-;   <label> (default)
 format-foreground = ${colors.violet}
 format-background = ${colors.black}
 format-padding = 2
 
-; Available tokens:
-;   %title%
-; Default: %title%
 label = %title%
 label-maxlen = 20
 
-; Used instead of label when there is no window title
-; Available tokens:
-; None
 label-empty = Workspace
 label-empty-foreground = ${colors.violet}
 ;------------------------------------------------------------------------------
@@ -285,21 +226,8 @@ label-empty-foreground = ${colors.violet}
 [module/backlight]
 type = internal/backlight
 
-; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
 card = intel_backlight
-
-; Enable changing the backlight with the scroll wheel (unreleased)
-; NOTE: This may require additional configuration on some systems. Polybar will
-; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
-; to have write access to that file.
-; DO NOT RUN POLYBAR AS ROOT. 
-; The recommended way is to add the user to the
-; `video` group and give that group write-privileges for the `brightness` file.
-; See the ArchWiki for more information:
-; https://wiki.archlinux.org/index.php/Backlight#ACPI
-; Default: false
-;enable-scroll = true
 
 format = <label>
 format-prefix = " 盛 "
@@ -312,31 +240,16 @@ label = "%percentage%% "
 ;------------------------------------------------------------------------------
 [module/date]
 type = internal/date
-; Seconds to sleep between updates
-; Default: 1.0
 interval = 1.0
-
-; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to
-; format the date string ; NOTE: if you want to use syntax tags here you need to
-; use %%{...}
 date = %a %d %b
-
-;Optional time format
 time = %H:%M %p
-
-;if `date-alt` or `time-alt` is defined, clicking
-;the module will toggle between formats
 date-alt = %a, %d %b %Y
 time-alt = %H:%M:%S
 
 format-prefix = "  "
 format-foreground = ${colors.cyan1}
 format-background = ${colors.black}
-
-; Available tokens:
-;   %date%
-;   %time%
-; Default: %date%
+ Default: %date%
 label = "%date% "
 ;------------------------------------------------------------------------------
 ;	                             TIME 
@@ -354,41 +267,21 @@ label = %time%
 ;------------------------------------------------------------------------------
 [module/pulseaudio]
 type = internal/pulseaudio
-
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
 sink = alsa_output.pci-0000_00_1b.0.analog-stereo
-
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
 use-ui-max = true
-
-; Interval for volume increase/decrease (in percent points)
-; Default: 5
 interval = 5
 
-; Available tags:
-;   <label-volume> (default)
-;   <ramp-volume>
-;   <bar-volume>
 format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.white}
 format-volume-background = ${colors.black}
 
-; Available tokens:
-;   %percentage% (default)
-;   %decibels% (unreleased)
 label-volume = "%percentage%%"
 label-volume-foreground = ${colors.white}
 
-; Available tokens:
-;   %percentage% (default)
-;   %decibels% (unreleased)
 label-muted = "   "
 label-muted-foreground = ${colors.bright_red}
 label-muted-background = ${colors.black}
 
-; Only applies if <ramp-volume> is used
 ramp-volume-0 = " "
 ramp-volume-0-foreground = ${colors.white}
 ramp-volume-0-background = ${colors.black}
@@ -405,7 +298,6 @@ ramp-volume-3 = "  "
 ramp-volume-3-foreground = ${colors.white}
 ramp-volume-3-background = ${colors.black}
 
-; Right and Middle click (unreleased)
 click-right ="pavucontrol&"
 ;------------------------------------------------------------------------------
 ;	                              SPOTIFY
@@ -423,34 +315,16 @@ label-foreground = ${colors.spotify}
 ;------------------------------------------------------------------------------
 [module/battery]
 type = internal/battery
-
-; This is useful in case the battery never reports 100% charge
 full-at = 99
 
-; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
 battery = BAT0
-# battery = BAT1
+#battery = BAT1
 adapter = AC
 
-; If an inotify event haven't been reported in this many
-; seconds, manually poll for new values.
-; Needed as a fallback for systems that don't report events
-; on sysfs/procfs.
-; Disable polling by setting the interval to 0.
-; Default: 5
 poll-interval = 5
-
-; see "man date" for details on how to format the time string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
-; Default: %H:%M:%S
 time-format = %H:%M
 
-; Available tokens:
-;   %percentage% (default) - is set to 100 if full-at is reached
-;   %percentage_raw%
-;   %time%
-;   %consumption% (shows current charge rate in watts)
 label-discharging = " %percentage%% "
 label-discharging-foreground = ${colors.faded_orange}
 
@@ -465,13 +339,9 @@ label-full-foreground = ${colors.light0_soft}
 [module/weather]
 type = custom/script
 
-; Script
 exec = ~/.scripts/polybars/weather/weather.sh
-
-; Update interval
 interval = 600
 
-; Label
 label            = "  %output% "
 label-foreground = ${colors.accent}
 ;format-underline = ${colors.accent}
@@ -480,28 +350,16 @@ label-foreground = ${colors.accent}
 ;-------------------------------------------------------------------------------
 [module/cpu]
 type = internal/cpu
-
-; Seconds to sleep between updates
-; Default: 1
 interval = 2
 
-; Available tags:
-;   <label> (default)
-;   <bar-load>
-;   <ramp-load>
-;   <ramp-coreload>
 format = <label>
 format-foreground = ${colors.bright_aqua}
 format-background = ${colors.black}
-;format-underline = ${colors.gree1}
+
 format-padding = 1
 format-prefix = "龍 "
 format-prefix-foreground = ${colors.gree1}
-; Available tokens:
-;   %percentage% (default) - total cpu load averaged over all cores
-;   %percentage-sum% - Cumulative load on all cores
-;   %percentage-cores% - load percentage for each core
-;   %percentage-core[1-9]% - load percentage for specific core
+
 label = "%percentage:2%%"
 label-font = 4
 label-foreground = ${colors.gree1}
@@ -510,21 +368,8 @@ label-foreground = ${colors.gree1}
 ;-------------------------------------------------------------------------------
 [module/memory]
 type = internal/memory
-
-; Seconds to sleep between updates
-; Default: 1
 interval = 0.2
 
-; Available tags:
-;   <label> (default)
-;   <bar-used>
-;   <bar-free>
-;   <ramp-used>
-;   <ramp-free>
-;   <bar-swap-used>
-;   <bar-swap-free>
-;   <ramp-swap-used>
-;   <ramp-swap-free>
 format = <label>
 format-prefix =" "
 format-prefix-foreground = ${colors.bright_aqua}
@@ -541,101 +386,54 @@ label-foreground = ${colors.bright_aqua}
 [module/eth]
 type = internal/network
 
-; Name of the network interface to display. You can get the names of the
-; interfaces on your machine with `ip link`
-; Wireless interfaces often start with `wl` and ethernet interface with `eno` or `eth`
 interface = enp3s0
 
-; Seconds to sleep between updates
-; Default: 1
 interval = 3.0
-
-; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
-; Minimum output width of upload/download rate
-; Default: 3
 udspeed-minwidth = 5
-
-; Accumulate values from all interfaces
-; when querying for up/downspeed rate
-; Default: false
 accumulate-stats = true
-
-; Consider an `UNKNOWN` interface state as up.
-; Some devices like USB network adapters have 
-; an unknown state, even when they're running
-; Default: false
 unknown-as-up = true
 
-; Default: %ifname% %local_ip%%
 label-connected = "  "
 label-connected-foreground = ${colors.bright_blue}
 
-; Available tags:
-;   <label-connected> (default)
-;   <ramp-signal>
-; Default: (none)
 format-connected = <label-connected>
 
 label-disconnected = "  not connected "
 label-disconnected-foreground = ${colors.faded_red}
 
-; Available tags:
-;   <label-disconnected> (default)
 format-disconnected = <label-disconnected>
 
 ; Wireless-Network ------------------------------------------------------------
 [module/wlan]
 type = internal/network
 
-; Name of the network interface to display. You can get the names of the
-; interfaces on your machine with `ip link`
-; Wireless interfaces often start with `wl` and ethernet interface with `eno` or `eth`
 interface = wlp2s0
 #interface = wlp4s0
 
-; Seconds to sleep between updates
-; Default: 1
 interval = 3.0
-
-; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
-; Minimum output width of upload/download rate
-; Default: 3
 udspeed-minwidth = 5
-
-; Accumulate values from all interfaces
-; when querying for up/downspeed rate
-; Default: false
 accumulate-stats = true
-
-; Consider an `UNKNOWN` interface state as up.
-; Some devices like USB network adapters have 
-; an unknown state, even when they're running
-; Default: false
 unknown-as-up = true
-
-; Default: %ifname% %local_ip%%
-; Available tags:
-;   <label-connected> (default)
-;   <ramp-signal>
-; Default: (none)
 
 label-connected = "   %{A1:nm-connection-editor:}%essid%%{A} "
 label-connected-foreground = ${colors.light0}
 
-; Available tags:
-;   <label-disconnected> (default)
 format-connected = <label-connected>
 
 label-disconnected ="   not connected "
 label-disconnected-foreground = ${colors.red}
 
 format-disconnected = <label-disconnected>
+;------------------------------------------------------------------------------
 
+;------------------------------------------------------------------------------
 [module/networkmanager]
 type = custom/script
 exec = ~/.scripts/polybars/network/networkmanager.sh
 tail = true
+;------------------------------------------------------------------------------
 
+;------------------------------------------------------------------------------
 [module/vpn-openvpn-status]
 type = custom/script
 exec = ~/.scripts/polybars/network/openvpn.sh
@@ -645,68 +443,30 @@ interval = 5
 ;------------------------------------------------------------------------------
 [module/temperature]
 type = internal/temperature
-
-; Seconds to sleep between updates
-; Default: 1
 interval = 0.5
 
-; Thermal zone to use
-; To list all the zone types, run 
 ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
 ;thermal-zone = 0
 
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
-; Default reverts to thermal zone setting
 hwmon-path =/sys/devices/virtual/thermal/thermal_zone0/hwmon0/temp1_input
 
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80 
 warn-temperature = 80
-
-; Base temperature for where to start the ramp (in degrees celsius)
-; Default: 0
 base-temperature = 20
 
-; Whether or not to show units next to the temperature tokens (°C, °F)
-; Default: true
-;units = false
-
-; Available tags:
-;   <label> (default)
-;   <ramp>
 format = <label>
-;format = <ramp> <label>
-
-; Available tags:
-;   <label-warn> (default)
-;   <ramp>
 format-warn = <label-warn>
 format-prefix = " "
 format-prefix-foreground = ${colors.spotify}
-;format-underline = ${colors.spotify}
-;format-warn-underline = ${colors.red}
 
-; Available tokens:
-;   %temperature% (deprecated)
-;   %temperature-c%   (default, temperature in °C)
-;   %temperature-f%   (temperature in °F)
 label = " %temperature-c%"
 label-foreground = ${colors.spotify}
 
-; Available tokens:
-;   %temperature% (deprecated)
-;   %temperature-c%   (default, temperature in °C)
-;   %temperature-f%   (temperature in °F)
 label-warn = "%temperature-c% "
 label-warn-foreground = ${colors.red}
 ;------------------------------------------------------------------------------
 ;	                              POWERMENU
 ;------------------------------------------------------------------------------
-#TODO:Fix this module nothing is being showed.
 [module/powermenu]
 type = custom/menu
 
@@ -716,12 +476,10 @@ format-background = ${colors.black}
 label-open = "  "
 label-close = "  "
 
-; Reboot
 menu-0-0 = "  Reboot "
 menu-0-0-foreground = ${colors.yellow}
 menu-0-0-exec = /sbin/reboot
 
-; Power offline
 menu-0-1 = "   Poweroff "
 menu-0-1-foreground = ${colors.yellow}
 menu-0-1-exec = /sbin/poweroff
@@ -759,4 +517,5 @@ label-layout = %layout%
 label-prefix-foreground = ${colors.blue2}
 label-indicator-padding = 2
 label-indicator-margin = 1
+
 #vim:ft=dosini

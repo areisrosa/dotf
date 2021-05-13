@@ -6,8 +6,8 @@
 " provide arrows.
 let g:NERDTreeDirArrowExpandable  = "+"
 let g:NERDTreeDirArrowCollapsible = "⠶"
-let NERDTreeStatusline            = " NERDTree "
-let NERDTreeHijackNetrw           = 0
+"let NERDTreeStatusline            = " NERDTree "
+"let NERDTreeHijackNetrw           = 0
 " Hide certain files and directories from NERDTree
 let g:NERDTreeIgnore              = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 "
@@ -18,9 +18,9 @@ let g:NERDTreeIgnore              = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', 
 " Function (1) :
 "
 function! NerdTreeRefresh()
-	if &filetype == "nerdtree"
-		silent exe substitute(mapcheck("R"), "<CR>", "", "")
-	endif
+    if &filetype == "nerdtree"
+        silent exe substitute(mapcheck("R"), "<CR>", "", "")
+    endif
 endfunction
 
 autocmd! BufEnter * call NerdTreeRefresh()
@@ -29,23 +29,35 @@ autocmd! BufEnter * call NerdTreeRefresh()
 "
 " Function (2) :
 "
+"function! OpenNerdTree()
+"    let l:is_nerdtree = expand('%') =~#'NERD_tree'
+"    let l:is_cur_buf_empty = empty(expand("%"))
+"    "
+"    if l:is_nerdtree || l:is_cur_buf_empty
+"        execute'NERDTreeToggle'
+"    else
+"        execute'NERDTreeFind'
+"    endif
+"endfunction
+""
+"if empty(maparg('\','n'))
+"    nmap <silent><C-\> :call OpenNerdTree()<CR>
+"endif
+
+" Open the project tree and expose current file in the nerdtree with Ctrl-\ "
+" calls NERDTreeFind iff NERDTree is active, current window contains a
+" modifiable file, and we're not in vimdiff
 function! OpenNerdTree()
-	let l:is_nerdtree = expand('%') =~#'NERD_tree'
-	let l:is_cur_buf_empty = empty(expand("%"))
-	"
-	if l:is_nerdtree || l:is_cur_buf_empty
-		execute'NERDTreeToggle'
-	else
-		execute'NERDTreeFind'
-	endif
+  if &modifiable && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+  else
+    NERDTreeToggle
+  endif
 endfunction
-"
-if empty(maparg('\','n'))
-	nmap <silent><C-\> :call OpenNerdTree()<CR>
-endif
-"
-noremap <silent> ,nt :NERDTreeToggle<CR> <C-w>=
-noremap <silent> ,nf :NERDTreeFind<CR> <C-w>=
+
+nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
+nnoremap <silent> ,nt :NERDTreeToggle<CR> <C-w>=
+nnoremap <silent> ,nf :NERDTreeFind<CR> <C-w>=
 "
 "-------------------------------------------------------------------------------
 " Open: A NERDTree automatically when vim starts up

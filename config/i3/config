@@ -1,13 +1,14 @@
-# " " ==========================================================================
+# =============================================================================
 #  _ _____                    __ _
 # (_)___ /    ___ ___  _ __  / _(_) __ _
 # | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
 # | |___) | | (_| (_) | | | |  _| | (_| |
 # |_|____/   \___\___/|_| |_|_| |_|\__, |
 #                                  |___/
-# " " ==========================================================================
+# =============================================================================
 # " "                     Settings from my computer :)                         "
-# " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+# " " ==========================================================================
+# " "
 # " " Author:        Anderson Reis
 # " "
 # " " Verison:       Vim
@@ -41,8 +42,9 @@
 # " "                -> Window configuration
 # " "
 # " " Note:          For the benefit of vim/nvim users: -*- shell-script -*-
-# ==============================================================================
-#: Default modkey ---------------------------------------------------------- {{{
+# =============================================================================
+# Default modkey ---------------------------------------------------------- {{{
+#
 # Mod4 = Windows Key
 set $mod Mod4
 set $alt Mod1
@@ -52,27 +54,27 @@ set $mul2 HDMI-1
 set $mul3 HDMI-2
 set $mul4 DP-1
 #: }}}
-#: Directories ------------------------------------------------------------- {{{
+# Directories ------------------------------------------------------------- {{{
 set $walls     $HOME/.wallpapers/wallpaper-3.jpg
 set $lock      $HOME/.wallpapers/rick-marty.png
 set $screendir $HOME/Pictures/screenshots
-#: }}}
-#: Screenshots format ------------------------------------------------------ {{{
+# }}}
+# Screenshots format ------------------------------------------------------ {{{
 set $format $HOME/Pictures/screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
-#: }}}
-#: Whole screen ------------------------------------------------------------ {{{
+# }}}
+# Whole screen ------------------------------------------------------------ {{{
 bindsym $mod+Print exec maim -uoi root | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Print exec maim -uoi root $format
-#: }}}
-#: Focused container ------------------------------------------------------- {{{
+# }}}
+# Focused container ------------------------------------------------------- {{{
 bindsym Ctrl+Print exec maim -uoi $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec maim -uoi $(xdotool getactivewindow) $format
 #: }}}
-#: Selected area ----------------------------------------------------------- {{{
+# Selected area ----------------------------------------------------------- {{{
 bindsym Print exec maim -usko | xclip -selection clipboard -t image/png
 bindsym Shift+Print exec maim -usko $format
-#: }}}
-#: Workspaces's names ------------------------------------------------------ {{{
+# }}}
+# Workspaces's names ------------------------------------------------------ {{{
 set $ws1  "1"
 set $ws2  "2"
 set $ws3  "3"
@@ -83,8 +85,8 @@ set $ws7  "7"
 set $ws8  "8"
 set $ws9  "9"
 set $ws0 "10"
-#: }}}
-#: Colors configuration
+# }}}
+# Colors configuration
 set $bg       #282A36
 set $lg       #44475a
 set $black    #000000
@@ -99,42 +101,47 @@ set $red1     #ff0000
 set $pink2    #e60053
 set $pink3    #d75f5f
 set $yello3   #d4d232
-#: i3s Core Options -------------------------------------------------------- {{{
-#: Where color class can be one of
-#: client.focused
-#: A client which currently has the focus.
-#: client.focused_inactive
-#: A client which is the focused one of its container, but it does not have the focus at the moment.
-#: client.unfocused
-#: A client which is not the focused one of its container.
-#: client.urgent
-#: A client which has its urgency hint activated.
-#: client.placeholder
-#: Background and text color are used to draw placeholder window contents (when restoring layouts). Border and indicator are ignored.
-#: client.background
-#: Background color which will be used to paint the background of the client window on top of which the client will be rendered. Only clients which do not cover the whole area of this window expose the color. Note that this colorclass only takes a single color.
-#: Border's coloring
-#: set some nice colors     border     background  text    indicator
-client.focused              $red1      $red1       $red1   $red1
-client.unfocused            $lg        $lg         $lg     $lg
+# i3s Core Options -------------------------------------------------------- {{{
+# Where color class can be one of
+# client.focused
+# A client which currently has the focus.
+# client.focused_inactive
+# A client which is the focused one of its container, but it does not have the
+# focus at the moment.
+# client.unfocused
+# A client which is not the focused one of its container.
+# client.urgent
+# A client which has its urgency hint activated.
+# client.placeholder
+# Background and text color are used to draw placeholder window contents (when
+# restoring layouts). Border and indicator are ignored.
+# client.background
+# Background color which will be used to paint the background of the client
+# window on top of which the client will be rendered. Only clients which do not
+# cover the whole area of this window expose the color. Note that this
+# colorclass only takes a single color.
+# Border's coloring
+# set some nice colors      border     background  text    indicator
+client.focused              $green1    $green1     $green1 $green1
+client.unfocused            $red1      $red1       $red1   $red1
 client.focused_inactive     $black     $black      $black  $black
 client.urgent               $pink2     $pink2      $pink2  $pink2
 client.placeholder          $yello3    $yello3     $yello3 $yello3
-#: Font for window titles. ------------------------------------------------- {{{
+# Font for window titles. ------------------------------------------------- {{{
 font pango: DejaVu Sans Mono 0
 default_border pixel 4
-#: }}}
-#: Start a terminal -------------------------------------------------------- {{{
+# }}}
+# Start a terminal -------------------------------------------------------- {{{
 bindsym $mod+Return exec kitty
 #: }}}
-#: Kill focused window ----------------------------------------------------- {{{
+# Kill focused window ----------------------------------------------------- {{{
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+m exec pkill spotify
-#: }}}
-#: Start rofi (a program launcher) ----------------------------------------- {{{
+# }}}
+# Start rofi (a program launcher) ----------------------------------------- {{{
 bindsym $mod+d exec rofi -show drun -columns 3
-#: }}}
-# Application Quickstart --------------------------------------------------- {{{
+# }}}
+# Application Quickstart -------------------------------------------------- {{{
 bindsym $mod+$alt+s exec spotify
 bindsym $mod+$alt+f exec firefox
 bindsym $mod+$alt+e exec firefox-esr
@@ -143,40 +150,40 @@ bindsym $mod+$alt+p exec popcorn-time
 bindsym $mod+$alt+c exec chromium
 bindsym $mod+$alt+l exec slack
 bindsym $mod+Shift+Return exec rofi -show run
-#: }}}
-#: Navigations among container --------------------------------------------- {{{
+# }}}
+# Navigations among container --------------------------------------------- {{{
 bindsym $mod+Up focus up
 bindsym $mod+Down focus down
 bindsym $mod+Left focus left
 bindsym $mod+Right focus right
 bindsym $mod+a focus parent
-#: Movement among containers ----------------------------------------------- {{{
+# Movement among containers ----------------------------------------------- {{{
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
 floating_modifier $mod
-#: }}}
-#: Split in horizontal orientation ----------------------------------------- {{{
+# }}}
+# Split in horizontal orientation ----------------------------------------- {{{
 bindsym $mod+h split h
-#: }}}
-#: Split in vertical orientation ------------------------------------------- {{{
+# }}}
+# Split in vertical orientation ------------------------------------------- {{{
 bindsym $mod+v split v
 #: }}}
-#: Enter fullscreen mode for the focused container ------------------------- {{{
+# Enter fullscreen mode for the focused container ------------------------- {{{
 bindsym $mod+f fullscreen toggle
 bindsym $mod+g fullscreen global
-#: }}}
-#: Change container layout (stacked, tabbed, toggle split) ----------------- {{{
+# }}}
+# Change container layout (stacked, tabbed, toggle split) ----------------- {{{
 bindsym $mod+$alt+t layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
-#: }}}
-#: Change focus between tiling / floating windows -------------------------- {{{
+# }}}
+# Change focus between tiling / floating windows -------------------------- {{{
 bindsym $mod+space focus mode_toggle
-#: }}}
-#: Switch to workspace  ---------------------------------------------------- {{{
+# }}}
+# Switch to workspace  ---------------------------------------------------- {{{
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -187,12 +194,12 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws0
-#: }}}
-#: Navigation -------------------------------------------------------------- {{{
+# }}}
+# Navigation -------------------------------------------------------------- {{{
 bindsym Ctrl+$mod+Left workspace prev
 bindsym Ctrl+$mod+Right workspace next
-#: }}}
-#: Move focused container to workspace ------------------------------------- {{{
+# }}}
+# Move focused container to workspace ------------------------------------- {{{
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -203,8 +210,8 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0
-#: }}}
-#: Configure Multi-Monitor Workspaces -------------------------------------- {{{
+# }}}
+# Configure Multi-Monitor Workspaces -------------------------------------- {{{
 # workspace $ws1 output $mul1
 # workspace $ws2 output $mul3
 # workspace $ws3 output $mul3
@@ -215,7 +222,7 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 # workspace $ws8 output $mul4
 # workspace $ws9 output $mul4
 # workspace $ws0 output $mul4
-#: or
+# or
 workspace $ws1 output $mul1
 workspace $ws2 output $mul2
 workspace $ws3 output $mul2
@@ -226,42 +233,42 @@ workspace $ws7 output $mul2
 workspace $ws8 output $mul2
 workspace $ws9 output $mul2
 workspace $ws0 output $mul2
-#: }}}
-#: Containers' movement ---------------------------------------------------- {{{
+# }}}
+# Containers' movement ---------------------------------------------------- {{{
 bindsym Ctrl+Shift+Left move container workspace prev
 bindsym Ctrl+Shift+Right move container workspace next
-#: }}}
-#: Always open some programs on specified workspace ------------------------ {{{
+# }}}
+# Always open some programs on specified workspace ------------------------ {{{
 assign [class="kitty"]                  $ws1
 assign [class="^Slack"]                 $ws2
 assign [class="^Firefox ESR"]           $ws3
 assign [class="^Spotify Premium"]       $ws4
 assign [class="^Firefox Developer"]     $ws5
 assign [class="^Chromium Web Browser"]  $ws6
-#: }}}
-#: Enable float for some windows ------------------------------------------- {{{
+# }}}
+# Enable float for some windows ------------------------------------------- {{{
 for_window [class="^Pavucontrol$"] floating enable
 for_window [class="^Arandr$"]      floating enable
-#: }}}
-#: Scripts ----------------------------------------------------------------- {{{
-exec_always --no-startup-id $HOME/.scripts/monitors/dual_monitors.sh   # Automatically switch within two monitors
-#exec_always --no-startup-id $HOME/.scripts/monitors/triple_monitors.sh # Automatically switch within tree monitors
+# }}}
+# Scripts ----------------------------------------------------------------- {{{
+exec_always --no-startup-id $HOME/.scripts/monitors/dual_monitors.sh
+#exec_always --no-startup-id $HOME/.scripts/monitors/triple_monitors.sh
 exec_always --no-startup-id $HOME/.scripts/polybars/bars/launch.sh
-exec_always --no-startup-id $HOME/.scripts/wallpapers/wallpaper.sh     # Set a random wallpaper
+exec_always --no-startup-id $HOME/.scripts/wallpapers/wallpaper.sh
 exec_always --no-startup-id $HOME/.scripts/keyboards/thinkpad_layaout.sh
-#: }}}
-#: i3's commands  ---------------------------------------------------------- {{{
+# }}}
+# i3's commands  ---------------------------------------------------------- {{{
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-#: }}}
-#: Media Control ----------------------------------------------------------- {{{
-#: Sreen brightness controls
-bindsym XF86MonBrightnessUp   exec light -A 5  # Increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5  # Decrease screen brightness
+# }}}
+# Media Control ----------------------------------------------------------- {{{
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 #: Pulse Audio controls
 bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
@@ -269,9 +276,9 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-#: }}}
-#: Window configuration ---------------------------------------------------- {{{
-#: Resize window (you can also use the mouse for that)
+# }}}
+# Window configuration ---------------------------------------------------- {{{
+# Resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -293,13 +300,13 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
-#: Programs to run at startup ---------------------------------------------- {{{
+# Programs to run at startup ---------------------------------------------- {{{
 exec --no-startup-id nm-applet
 exec --no-startup-id kitty
-exec --no-startup-id compton --config $HOME/.config/compton/compton.conf # Compositor for window transparency
-exec --no-startup-id notify-send "Au, au! Welcome back Anderson Reis, you should upgrade your software." -i $HOME/.wallpapers/icons8-dog-100.png # Greeting on startup
+exec --no-startup-id compton --config $HOME/.config/compton/compton.conf
+exec --no-startup-id notify-send "Au, au! Welcome back Anderson Reis, you should upgrade your software." -i $HOME/.wallpapers/icons8-dog-100.png
 exec --no-startup-id $HOME/.scripts/keyboards/thinkpad_layaout.sh
-#: }}}
-# Lock screen -------------------------------------------------------------- {{{
+# }}}
+# Lock screen ------------------------------------------------------------- {{{
 bindsym $mod+x exec --no-startup-id i3lock --image=$lock --tiling --ignore-empty-password --show-failed-attempts
-#: }}}
+# }}}

@@ -2,7 +2,7 @@
 " Themes and Style Settings ------------------------------------------------ {{{
 "===============================================================================
 "
-" =========================== Themes for Vim ===================================
+"============================ Themes for Vim ===================================
 
 " Gruvbox Theme
 " Enable Transparency
@@ -64,7 +64,7 @@ augroup END
 " =========================== Devicons Configurations ==========================
 
 if exists('g:loaded_webdevicons')
-	call webdevicons#refresh()
+    call webdevicons#refresh()
 endif
 
 " =========================== PowerLine Configurations =========================

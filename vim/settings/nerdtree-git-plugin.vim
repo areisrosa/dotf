@@ -5,17 +5,17 @@
 " ------------------------------------------------------------------------------------------------------------------------------
 "
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-			\"Modified"  :"±",
-			\"Staged"    :"⇆",
-			\"Untracked" :"?",
-			\"Renamed"   :"➜",
-			\"Unmerged"  :"═",
-			\"Deleted"   :"✖",
-			\"Dirty"     :"✗",
-			\"Clean"     :"✔︎",
-			\'Ignored'   :'☒',
-			\"Unknown"   :"?"
-			\ }
+            \"Modified"  :"±",
+            \"Staged"    :"⇆",
+            \"Untracked" :"?",
+            \"Renamed"   :"➜",
+            \"Unmerged"  :"═",
+            \"Deleted"   :"✖",
+            \"Dirty"     :"✗",
+            \"Clean"     :"✔︎",
+            \'Ignored'   :'☒',
+            \"Unknown"   :"?"
+            \ }
 let g:NERDTreeGitStatusUpdateOnCursorHold = 0
 let g:NERDTreeGitStatusIndicatorMapCustom = 0
 " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline,
