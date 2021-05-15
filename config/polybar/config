@@ -249,7 +249,6 @@ time-alt = %H:%M:%S
 format-prefix = "  "
 format-foreground = ${colors.cyan1}
 format-background = ${colors.black}
- Default: %date%
 label = "%date% "
 ;------------------------------------------------------------------------------
 ;	                             TIME 

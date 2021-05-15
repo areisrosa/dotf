@@ -91,16 +91,16 @@ set $bg       #282A36
 set $lg       #44475a
 set $black    #000000
 set $fg       #f8f8f2
-set $cyan1    #8be9fd
-set $green1   #50fa7b
+set $cyan     #8be9fd
+set $green    #50fa7b
 set $comment  #6272a4
-set $purple1  #bd93f9
-set $violet1  #a36ac8
-set $magenta1 #ff79c6
-set $red1     #ff0000
-set $pink2    #e60053
-set $pink3    #d75f5f
-set $yello3   #d4d232
+set $purple   #bd93f9
+set $violet   #a36ac8
+set $magenta  #ff79c6
+set $red      #ff0000
+set $pink     #e60053
+set $pink_2   #d75f5f
+set $yellow   #d4d232
 # i3s Core Options -------------------------------------------------------- {{{
 # Where color class can be one of
 # client.focused
@@ -122,11 +122,11 @@ set $yello3   #d4d232
 # colorclass only takes a single color.
 # Border's coloring
 # set some nice colors      border     background  text    indicator
-client.focused              $green1    $green1     $green1 $green1
-client.unfocused            $red1      $red1       $red1   $red1
-client.focused_inactive     $black     $black      $black  $black
-client.urgent               $pink2     $pink2      $pink2  $pink2
-client.placeholder          $yello3    $yello3     $yello3 $yello3
+client.focused              $red       $red        $red    $red
+client.unfocused            $black     $black      $black  $black
+client.focused_inactive     $green     $green      $green  $green
+client.urgent               $pink      $pink       $pink   $pink
+client.placeholder          $yellow    $yellow     $yellow $yellow
 # Font for window titles. ------------------------------------------------- {{{
 font pango: DejaVu Sans Mono 0
 default_border pixel 4
