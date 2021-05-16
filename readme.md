@@ -127,7 +127,7 @@ status bar and vim keybindings. You can customize the configuration in
 ### Prefix key
 
 The default prefix is `C-b`. But I prefer use my muscle memory with prefix `C-a`
-(`=C-a` or `^W`), if you want change the prefix then go to `~/.tmux.conf`.
+(`=C-a` or `^A`), if you want change the prefix then go to `~/.tmux.conf`.
 ```
 # remap prefix to Control + w
 set -g prefix C-w
