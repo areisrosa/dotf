@@ -1,8 +1,8 @@
 " This loads before the dotf plugins so that plugin mappings can
 " be overwritten.
-
-" ========================= Comment ===========================================
-" delete comment character when joining commented lines
+"
+" Comment =====================================================================
+" Delete comment character when joining commented lines
 set formatoptions+=j
 " The sequence of letters describes how automatic formatting is to be done.
 " c - Auto-wrap comments using textwidth, inserting the current comment leader
@@ -10,10 +10,10 @@ set formatoptions+=j
 " q - Allow formatting of comments with "gq".
 set formatoptions=cq
 
-" ========================= History ===========================================
+" History =====================================================================
 set updatetime=1000
 
-" ========================= Store =============================================
+" Store =======================================================================
 " Set the persistent undo directory on temporary private fast storage.
 let s:undoDir = "/tmp/.undodir_" . $USER
 if !isdirectory(s:undoDir)
@@ -26,7 +26,7 @@ set viminfo=              "No backups
 " under current directory recursively.
 set path=.,,**
 
-" ========================== Performance Fixes ================================
+" Performance Fixes ===========================================================
 set regexpengine=1
 " Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
 " to I-beam and back functionality set by the t_SI and t_EI variables below.
@@ -42,7 +42,7 @@ set completeopt=menuone,noselect
 set complete-=i           "Disable completion by included files
 set confirm               "Get a dialog when :q, :w, or :wq fails
 
-" ========================= Show ==============================================
+" Show ========================================================================
 set display+=lastline     "Display lastline instead of @
 set laststatus=2          "Show statusline (we want a statusline)
 set showtabline=2         "Always show tabline
@@ -51,18 +51,18 @@ set title                 "Show title
 set diffopt+=vertical     "Vertical diff
 set acd                   "Vim will change the current working directory whenever you open a file
 
-" ======================== Encoding ===========================================
+" Encoding ====================================================================
 set encoding=utf8         "Default encoding
 set termencoding=utf-8    "Terminal encoding
 set fileencodings=utf8    "Supported file encodings
 
-" ======================== Rules ==============================================
+" Rules =======================================================================
 set ruler                 "Always display cursor position
 set autowrite             "Automatically save before commands like :next and :make
 set noautochdir           "Change the current working directory whenever you open a file
 set wildcharm=<Tab>
 
-" ======================== Ignore files =======================================
+" Ignore files ================================================================
 set secure exrc           "Allow load .vimrc or _vimrc from current directory
 set shortmess+=I          "Don't display the intro message on starting Vim.
 if has("nvim")
@@ -216,6 +216,7 @@ endif
 "  Managers Vim Plugs: Vim Plug,  Pathogen,  Vundle and  NeoBundle. Is's up to
 "  you  to  use. Currenty, I use Vim Plug and Pathogen. However, it is up to up
 "  you to use. They are all great.
+"
 " ==============================================================================
 "                            Pathogen Settings
 " ==============================================================================

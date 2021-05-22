@@ -1,9 +1,9 @@
-"-------------------------------------------------------------------------------------------------------------------------------
-" Customizing Symbols: NERDTree Git Plug Settings
-" "
-" " Note: A plugin of NERDTree showing git status flags. Works with the LATEST version of NERDTree.
-" ------------------------------------------------------------------------------------------------------------------------------
-"
+" =============================================================================
+" Nerdtree Git Plugin ----------------------------------------------------- {{{
+" =============================================================================
+" Customizing Symbols
+" NOTE: A plugin of NERDTree showing git status flags. Works with the LATEST
+" version of NERDTree.
 let g:NERDTreeGitStatusIndicatorMapCustom = {
             \"Modified"  :"±",
             \"Staged"    :"⇆",
@@ -16,7 +16,5 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
             \'Ignored'   :'☒',
             \"Unknown"   :"?"
             \ }
-let g:NERDTreeGitStatusUpdateOnCursorHold = 0
-let g:NERDTreeGitStatusIndicatorMapCustom = 0
-" Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline,
-" This adds syntax for nerdtree on most common file extensions.
+"==============================================================================
+"}}}
