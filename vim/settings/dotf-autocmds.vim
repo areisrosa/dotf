@@ -1,9 +1,8 @@
-" ==============================================================================
-" Autocmds ----------------------------------------------------------------- {{{
-" ==============================================================================
-"
+" =============================================================================
+" Autocmds ---------------------------------------------------------------- {{{
+" =============================================================================
+
 " Custom settings per language by file type.
-"
 augroup languageCustomizationsByType
 	" Note, 'autocmd!' is used to clear out any existing definitions in
 	" this auto-group. This prevents duplicate entries upon a live vimrc
@@ -28,17 +27,15 @@ augroup languageCustomizationsByType
 	autocmd FileType scss           let g:indentLine_faster=0
 	autocmd FileType vim            setlocal formatoptions=coql
 augroup END
-"
+
 " Custom settings per language by file extension.
-"
 augroup languageCustomizationsByExtension
 	autocmd!
 	autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
 	autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
 augroup END
-"
+
 " Style and behaviour customizations.
-"
 augroup styleAndBehaviourCustomizations
 	autocmd!
 	autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
@@ -54,7 +51,6 @@ augroup styleAndBehaviourCustomizations
 augroup END
 "
 " Plugin-related behaviours.
-"
 augroup pluginBehaviours
 	autocmd!
 	autocmd FileType    *               IndentLinesReset
@@ -74,12 +70,9 @@ augroup pluginBehaviours
 		autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
 	endif
 augroup END
-"
+
 " Auto-read behaviour.
-"
 augroup autoRead
 	autocmd!
 	autocmd CursorHold * silent! checktime
 augroup END
-"
-" }}}

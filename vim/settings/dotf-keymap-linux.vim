@@ -1,15 +1,15 @@
-" ==============================================================================
-" ================= Linux specific General vim sanity improvements =============
-" ==============================================================================
+" =============================================================================
+" ================ Linux specific General vim sanity improvements =============
+" =============================================================================
 "
-" ==============================================================================
+" =============================================================================
 " RSI Prevention - keyboard remaps
-" ==============================================================================
+" =============================================================================
 " Certain things we do every day as programmers stress
 " out our hands. For example, typing underscores and
 " dashes are very common, and in position that require
 " a lot of hand movement. Vim to the rescue
-"
+
 " Now using the middle finger of either hand you can type
 " underscores with Alt-k or Alt-d, and add Shift
 " to type dashes
@@ -60,9 +60,9 @@ nnoremap <C-Down> <C-w>-
 nnoremap <C-Left> <C-w><
 nnoremap <C-Right>  <C-w>>
 
-" ==============================================================================
-" ========================== Tabularize - alignment ============================
-" ==============================================================================
+" =============================================================================
+" ========================= Tabularize - alignment ============================
+" =============================================================================
 " Hit Alt-Shift-A then type a character you want to align by
 nmap <A-A> :Tabularize /
 vmap <A-A> :Tabularize /

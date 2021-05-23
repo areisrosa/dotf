@@ -7,7 +7,7 @@
 let g:NERDTreeGitStatusIndicatorMapCustom = {
             \"Modified"  :"±",
             \"Staged"    :"⇆",
-            \"Untracked" :"?",
+            \"Untracked" :"■",
             \"Renamed"   :"➜",
             \"Unmerged"  :"═",
             \"Deleted"   :"✖",
@@ -16,5 +16,3 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
             \'Ignored'   :'☒',
             \"Unknown"   :"?"
             \ }
-"==============================================================================
-"}}}

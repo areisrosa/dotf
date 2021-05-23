@@ -13,6 +13,3 @@ let g:syntastic_check_on_wq              = 0
 let g:syntastic_quiet_messages           = {'level': 'warnings'}
 
 map <C-s> :SyntasticToggleMode<CR>
-"
-" }}}
-" =============================================================================

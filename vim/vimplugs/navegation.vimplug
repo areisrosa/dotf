@@ -4,7 +4,6 @@
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-"Plug 'osyo-manga/vim-over'
 Plug 'zoubin/vim-gotofile'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'

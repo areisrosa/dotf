@@ -7,7 +7,5 @@ let g:vim_tags_main_file = '.tags'
 if has('macunix')
   let g:vim_tags_ctags_binary = 'ctags --languages=objectivec --langmap=objectivec:.h.m'
 endif
-"
 let g:tagbar_autoclose = 0
-"
 let g:tagbar_width     = 30

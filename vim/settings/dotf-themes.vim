@@ -1,10 +1,8 @@
-"===============================================================================
-" Themes and Style Settings ------------------------------------------------ {{{
-"===============================================================================
+"==============================================================================
+" Themes and Style Settings ----------------------------------------------- {{{
+"==============================================================================
 "
-"============================ Themes for Vim ===================================
-
-" Gruvbox Theme
+" Gruvbox Theme ===============================================================
 " Enable Transparency
 "let g:gruvbox_transparent_bg   = 1
 " set background=dark
@@ -16,35 +14,8 @@
 " let g:gruvbox_italic            = 1
 " "
 " let g:gruvbox_bold              = 1
-"
-" or
-"Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
-" set contrast
-" this configuration option should be placed before `colorscheme gruvbox-material`
-" available values: 'hard', 'medium'(default), 'soft'
-"let g:gruvbox_material_background = 'soft'
-"let g:gruvbox_material_transparent_background = 1
 
-" OneDar Theme
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-" let g:bufferline_echo = 0
-" set noshowmode
-" if (empty($TMUX))
-"   if (has("nvim"))
-"     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-"     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"   endif
-"   "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"   "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-"   " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-"   if (has("termguicolors"))
-"     set termguicolors
-"   endif
-" endif
-
-" Dracula Theme
+" Dracula Theme ===============================================================
 augroup dracula_customization
     if(has("nvim"))
         if (has("termguicolors"))
@@ -54,40 +25,36 @@ augroup dracula_customization
             set colorcolumn=80
         endif
     endif
-        " Include background fill colors
+    " Include background fill colors
     let g:dracula_colorterm = 1
     autocmd ColorScheme dracula hi CursorLine cterm=underline term=underline
     autocmd ColorScheme dracula hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE guifg=#f8f8f2 guibg=#646e96 gui=NONE
     autocmd ColorScheme dracula hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold guifg=#282a36 guibg=#50fa7b gui=NONE
     autocmd ColorScheme dracula hi Normal ctermbg=NONE term=NONE
 augroup END
-" =========================== Devicons Configurations ==========================
 
+" Devicons Configurations =====================================================
 if exists('g:loaded_webdevicons')
     call webdevicons#refresh()
 endif
 
-" =========================== PowerLine Configurations =========================
-
+" PowerLine Configurations ====================================================
 let g:Powerline_symbols = "fancy"
 let g:Powerline_dividers_override = ["\Ue0b0","\Ue0b1","\Ue0b2","\Ue0b3"]
 let g:Powerline_symbols_override = {'BRANCH': "\Ue0a0", 'LINE': "\Ue0a1", 'RO': "\Ue0a2"}
 
-" ========================== AirLine Configurations ============================
-
+" AirLine Configurations ======================================================
 " Allows airline bar with cool icons <3 - Install a Patched font
 let g:airline_powerline_fonts = 1
 " Automatically displays all buffers when there's only one tab open.
 let g:airline#extensions#tabline#enabled = 1
 " Unicode Symbols
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
-
 let g:airline_symbols.notexists = " \uf7a1"
 
-" AirLine: Themes
-
+" AirLine Themes =============================================================
 " let g:airline_theme='gruvbox'
 " let g:airline_theme='gruvbox_material'
 " let g:airline_theme='badwolf'
@@ -223,11 +190,9 @@ let g:airline_theme='dracula_van_helsing'
 " let g:airline_theme='zenburn'
 "let g:airline_theme='transparent'
 
-" AirLine: Colorschme
+" AirLine Colorschme ==========================================================
 "colorscheme gruvbox
-"colorscheme gruvbox-material
 colorscheme dracula
-"colorscheme onedark
 "colorscheme wombat256
 "colorscheme tango
 "colorscheme railscasts " very good color
@@ -245,7 +210,7 @@ colorscheme dracula
 "colorscheme skittles_dark
 "colorscheme codeblocks_dark
 
-" AirLine: Tmuxline
+" AirLine Tmuxline ============================================================
 " Enable airline/tmuxline status bar during start of tmux
 " and enable/disable tmuxline integration
 let g:airline#extensions#tmuxline#enabled = 1

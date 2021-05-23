@@ -1,7 +1,5 @@
 " If you want :UltiSnipsEdit to split your window.
-"
 " Global: Variables
-"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " Trigger configuration. Do not use <tab> if you use 

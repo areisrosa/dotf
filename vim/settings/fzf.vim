@@ -1,22 +1,18 @@
-" ==============================================================================
-" FZF ---------------------------------------------------------------------- {{{
-" ==============================================================================
-"
+" =============================================================================
+" FZF --------------------------------------------------------------------- {{{
+" =============================================================================
+
 " Open files with command-line fuzzy finder(=fzf)
 " mapped the :Files or :FZF command to it like this.
-"
 if executable('pt')
   " Filter items through ag to respect gitignore
   let $FZF_DEFAULT_COMMAND = 'pt -l -g ""'
 endif
-"
-
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit',
   \ }
-"
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
@@ -33,13 +29,12 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-"
+
 " Enable per-command history
 " - History files will be stored in the specified directory
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-"
 " Run your favorite search tool from Vim, with an enhanced results list.
 let g:fzf_layout = { "window": "silent botright 16split enew" }
 " [Buffers] Jump to the existing window if possible
@@ -50,7 +45,6 @@ let g:fzf_commits_log_options = '--graph --color=always
 			\ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
 " [Tags] Command to generate tags file
 let g:fzf_tags_command = 'ctags -R'
-
 " Look for files under current directory
 nnoremap <silent>  ,fzf    :FZF<CR>
 " Tags in the project (ctags -R)
@@ -79,5 +73,3 @@ nnoremap <silent>  ,fm   :Maps<CR>
 nnoremap <silent>  ,fa   :Ag<CR>
 " Snippets (UltiSnips)
 nnoremap <silent>  ,fs   :Snippets<CR>
-"
-"}}}

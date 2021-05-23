@@ -1,21 +1,15 @@
 " Stolen from Steve Losh 
 " https://github.com/sjl/dotfiles/blob/master/vim/vimrc#L1380
-"
 " Motion for "next/last object".  "Last" here means "previous", not "final".
 " Unfortunately the "p" motion was already taken for paragraphs.
-"
 " Next acts on the next object of the given type, last acts on the previous
 " object of the given type.  These don't necessarily have to be in the current
 " line.
-"
 " Currently works for (, [, {, and their shortcuts b, r, B. 
-"
 " Next kind of works for ' and " as long as there are no escaped versions of
 " them in the string (TODO: fix that).  Last is currently broken for quotes
 " (TODO: fix that).
-"
 " Some examples (C marks cursor positions, V means visually selected):
-"
 " din'  -> delete in next single quotes                foo = bar('spam')
 "                                                      C
 "                                                      foo = bar('')
@@ -30,7 +24,6 @@
 "                                                       C
 "                                                      print "hello ", name
 "                                                             VVVVVV
-
 onoremap an :<c-u>call <SID>NextTextObject('a', '/')<cr>
 xnoremap an :<c-u>call <SID>NextTextObject('a', '/')<cr>
 onoremap in :<c-u>call <SID>NextTextObject('i', '/')<cr>
@@ -40,7 +33,6 @@ onoremap al :<c-u>call <SID>NextTextObject('a', '?')<cr>
 xnoremap al :<c-u>call <SID>NextTextObject('a', '?')<cr>
 onoremap il :<c-u>call <SID>NextTextObject('i', '?')<cr>
 xnoremap il :<c-u>call <SID>NextTextObject('i', '?')<cr>
-
 
 function! s:NextTextObject(motion, dir)
     let c = nr2char(getchar())
