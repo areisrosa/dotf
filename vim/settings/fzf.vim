@@ -44,10 +44,10 @@ let g:fzf_commits_log_options = '--graph --color=always
 			\ --format="%C(yellow)%h%C(red)%d%C(reset)
 			\ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
 " [Tags] Command to generate tags file
-let g:fzf_tags_command = 'ctags -R'
+let g:fzf_tags_command = 'ctags -R *'
 " Look for files under current directory
-nnoremap <silent>  ,fzf    :FZF<CR>
-" Tags in the project (ctags -R)
+nnoremap <silent>  ,fzf  :FZF<CR>
+" Tags in the project (ctags -R *)
 nnoremap <silent>  ,ft   :Tags<CR>
 " Tags in the current buffer
 nnoremap <silent>  ,fbt  :BTags<CR>
