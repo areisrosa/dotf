@@ -22,6 +22,7 @@
     ~/.config/rofi: config/rofi/
     ~/.config/zathura: config/zathura/
     ~/.config/ranger: config/ranger/
+    ~/.config/gtk-3.0: config/gtk-3.0
     ~/.ctags: ctags/ctags
     ~/.editrc: vim/vimify/edit/editrc
     ~/.fonts:
@@ -30,6 +31,7 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
     ~/.gitmessage: git/gitmessage
+    ~/.icons:
     ~/.ideavimrc: idea/ideavimrc
     ~/.images:
     ~/.inputrc: vim/vimify/input/inputrc
@@ -38,6 +40,7 @@
     ~/.muttrc: mutt/muttrc
     ~/.scripts:
     ~/.screenshots:
+    ~/.themes:
     ~/.tmux:
     ~/.tmux.conf: tmux/tmux.conf
     ~/.vim:
