@@ -1,3 +1,6 @@
+set font "Hack Nerd Font 8"
+set recolor
+
 map i recolor
 map p print
 map j scroll half-down
@@ -7,7 +10,3 @@ map <A-k> zoom in
 map <A-j> zoom out
 map r reload
 map R rotate
-
-set default-fg "#F8F8F5"
-set default-bg "#282828"
-set font "Hack Nerd Font 8"

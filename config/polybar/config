@@ -128,20 +128,20 @@ faded_orange   = #af3a03
 ;		                          GLOBAL SETTINGS
 ;------------------------------------------------------------------------------
 [bar/main]
-monitor = ${env:MONITOR}
-width = 100%
-height = 22
-bottom = false
-border-size = 0
-background = ${colors.black}
-foreground = ${colors.white}
-fixed-center = true
-line-size = 2
-line-color = #f00
-padding-left = 0
-padding-right = 0
-module-margin-left = 0
-module-margin-right = 0
+monitor=${env:MONITOR}
+width=100%
+height=22
+bottom=false
+border-size=0
+background=${colors.dark0_hard}
+foreground=${colors.white}
+fixed-center=true
+line-size=2
+line-color=#f00
+padding-left=0
+padding-right=0
+module-margin-left=0
+module-margin-right=0
 
 ;------------------------------------------------------------------------------
 ;		                          FONTS
@@ -175,12 +175,12 @@ label-mode-padding    = 1
 label-mode-background = ${colors.pink2}
 label-focused              = %icon%
 label-focused-foreground   = ${colors.violet}
-label-focused-background   = ${colors.black}
+label-focused-background   = ${colors.dark0_hard}
 label-focused-padding      = 1
 
 label-unfocused            = %icon%
 label-unfocused-foreground = ${colors.white}
-label-unfocused-background = ${colors.black}
+label-unfocused-background = ${colors.dark0_hard}
 label-unfocused-padding    = 1
 
 label-visible            = %icon%
@@ -212,7 +212,7 @@ ws-icon-9       = 0;Pop 嵐
 [module/xwindow]
 type = internal/xwindow
 format-foreground = ${colors.violet}
-format-background = ${colors.black}
+format-background = ${colors.dark0_hard}
 format-padding = 2
 
 label = %title%
@@ -232,7 +232,7 @@ card = intel_backlight
 format = <label>
 format-prefix = " 盛 "
 format-foreground = ${colors.bright_orange}
-format-background = ${colors.black}
+format-background = ${colors.dark0_hard}
 ;format-underline = ${colors.bright_orange}
 label = "%percentage%% "
 ;------------------------------------------------------------------------------
@@ -248,7 +248,7 @@ time-alt = %H:%M:%S
 
 format-prefix = "  "
 format-foreground = ${colors.cyan1}
-format-background = ${colors.black}
+format-background = ${colors.dark0_hard}
 label = "%date% "
 ;------------------------------------------------------------------------------
 ;	                             TIME 
@@ -259,7 +259,7 @@ interval = 1
 time = %Hh %Mmin %Ss
 format-prefix = "  "
 format-foreground = ${colors.cyan1}
-format-background = ${colors.black}
+format-background = ${colors.dark0_hard}
 label = %time%
 ;------------------------------------------------------------------------------
 ;	                              VOLUME
@@ -272,30 +272,30 @@ interval = 5
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.white}
-format-volume-background = ${colors.black}
+format-volume-background = ${colors.dark0_hard}
 
 label-volume = "%percentage%%"
 label-volume-foreground = ${colors.white}
 
 label-muted = "   "
 label-muted-foreground = ${colors.bright_red}
-label-muted-background = ${colors.black}
+label-muted-background = ${colors.dark0_hard}
 
 ramp-volume-0 = " "
 ramp-volume-0-foreground = ${colors.white}
-ramp-volume-0-background = ${colors.black}
+ramp-volume-0-background = ${colors.dark0_hard}
 
 ramp-volume-1 = " "
 ramp-volume-1-foreground = ${colors.white}
-ramp-volume-1-background = ${colors.black}
+ramp-volume-1-background = ${colors.dark0_hard}
 
 ramp-volume-2 = "  "
 ramp-volume-2-foreground = ${colors.white}
-ramp-volume-2-background = ${colors.black}
+ramp-volume-2-background = ${colors.dark0_hard}
 
 ramp-volume-3 = "  "
 ramp-volume-3-foreground = ${colors.white}
-ramp-volume-3-background = ${colors.black}
+ramp-volume-3-background = ${colors.dark0_hard}
 
 click-right ="pavucontrol&"
 ;------------------------------------------------------------------------------
@@ -353,7 +353,7 @@ interval = 2
 
 format = <label>
 format-foreground = ${colors.bright_aqua}
-format-background = ${colors.black}
+format-background = ${colors.dark0_hard}
 
 format-padding = 1
 format-prefix = "龍 "
@@ -373,7 +373,7 @@ format = <label>
 format-prefix =" "
 format-prefix-foreground = ${colors.bright_aqua}
 format-foreground = ${colors.bright_aqua}
-format-background = ${colors.black}
+format-background = ${colors.dark0_hard}
 
 label = "%gb_used%"
 label-font = 4
@@ -471,7 +471,7 @@ type = custom/menu
 
 format-padding = 1
 format-foreground = ${colors.yellow}
-format-background = ${colors.black}
+format-background = ${colors.dark0_hard}
 label-open = "  "
 label-close = "  "
 

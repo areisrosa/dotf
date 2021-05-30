@@ -1,2 +1,2 @@
-" This loads after the dotf plugins so that plugin mappings can
+" This loads after the dotfile plugs so that plug mappings can
 " be overwritten.

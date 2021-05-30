@@ -3,30 +3,15 @@
 "==============================================================================
 "
 " Gruvbox Theme ===============================================================
-" Enable Transparency
-"let g:gruvbox_transparent_bg   = 1
-" set background=dark
-" Adds 256 colors in terminal. Default is 16. Just in case
-" let g:gruvbox_termcolors        = 256
-" " High contrast baby!
-" let g:gruvbox_contrast_dark     = 'hard'
-" "
-" let g:gruvbox_italic            = 1
-" "
-" let g:gruvbox_bold              = 1
+set background=dark
+let g:gruvbox_termcolors        = 256    " Adds 256 colors in terminal. Default is 16. Just in case
+let g:gruvbox_contrast_dark     = 'hard' " High contrast baby!
+let g:gruvbox_italic            = 1
+let g:gruvbox_bold              = 1
 
 " Dracula Theme ===============================================================
 augroup dracula_customization
-    if(has("nvim"))
-        if (has("termguicolors"))
-            set termguicolors
-            set cursorcolumn
-            set cursorline
-            set colorcolumn=80
-        endif
-    endif
-    " Include background fill colors
-    let g:dracula_colorterm = 1
+let g:dracula_colorterm = 1
     autocmd ColorScheme dracula hi CursorLine cterm=underline term=underline
     autocmd ColorScheme dracula hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE guifg=#f8f8f2 guibg=#646e96 gui=NONE
     autocmd ColorScheme dracula hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold guifg=#282a36 guibg=#50fa7b gui=NONE
@@ -54,9 +39,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.notexists = " \uf7a1"
 
-" AirLine Themes =============================================================
-" let g:airline_theme='gruvbox'
-" let g:airline_theme='gruvbox_material'
+" AirLine Themes ==============================================================
 " let g:airline_theme='badwolf'
 " let g:airline_theme='ravenpower'
 " let g:airline_theme='simple'
@@ -133,7 +116,7 @@ let g:airline_symbols.notexists = " \uf7a1"
 " let g:airline_theme='desertink'
 " let g:airline_theme='deus'
 " let g:airline_theme='distinguished'
-" let g:airline_theme='dracula'
+"let g:airline_theme='dracula'
 " let g:airline_theme='dracula_pro'
 let g:airline_theme='dracula_van_helsing'
 " let g:airline_theme='durant'
@@ -195,18 +178,18 @@ let g:airline_theme='dracula_van_helsing'
 colorscheme dracula
 "colorscheme wombat256
 "colorscheme tango
-"colorscheme railscasts " very good color
+"colorscheme railscasts
 "colorscheme vividchalk
-"colorscheme distinguished " very good color
-"colorscheme monokai " very good color
-"colorscheme molokai " very good color
-"colorscheme ir_black " very good color
-"colorscheme neodark " very good color
-"colorscheme kolor " very good color
+"colorscheme distinguished
+"colorscheme monokai
+"colorscheme molokai
+"colorscheme ir_black
+"colorscheme neodark
+"colorscheme kolor
 "colorscheme gotham
 "colorscheme jellybeans
-"colorscheme desertEx " very good color
-"colorscheme skittles_berry " very good color
+"colorscheme desertEx
+"colorscheme skittles_berry
 "colorscheme skittles_dark
 "colorscheme codeblocks_dark
 
@@ -218,5 +201,3 @@ let g:airline#extensions#tmuxline#enabled = 1
 " Airline Theme is applied, i.e. when :AirlineTheme is executed and on vim
 " startup
 let g:airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline-colors.conf"
-
-"}}}

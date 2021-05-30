@@ -1,8 +1,8 @@
 # ~/.zsh/zsh_aliases.zsh
 
-################################################################################
-# General Config ----------------------------------------------------------- {{{
-################################################################################
+###############################################################################
+# General Configuration --------------------------------------------------- {{{
+###############################################################################
 
 # Don"t change. The following determines where Dotfile is installed.
 dotf=$HOME/.dotf
@@ -34,18 +34,15 @@ alias dlv='dotf vim-list-plugin'
 alias dup='dotf update-plugins'
 alias dip='dotf init-plugins'
 
-# Functions
-#
+# Function
 # (f)ind by (n)ame
 # usage: fn foo
 # to find all files containing "foo" in the name
 function fn() { ls **/*$1* }
 
-# }}}
-
-################################################################################
-## Apps -------------------------------------------------------------------- {{{
-################################################################################
+###############################################################################
+## Apps ------------------------------------------------------------------- {{{
+###############################################################################
 #
 # Alias Editing
 TRAPHUP() {
@@ -80,7 +77,7 @@ alias bbl='/bin/bash'
 alias te='vim ~/.tmux/tmux.conf'
 alias th="tmux -2 -q has-session && exec tmux -2 attach-session -d || exec tmux -2 new-session -s$USER@$HOSTNAME"
 
-# Oh-My-Zsh 
+# Oh-My-Zsh
 alias ohmyzsh='vim ~/.oh-my-zsh' 
 
 # Don't try to glob with zsh so you can do
@@ -222,26 +219,26 @@ alias neofetchrc='vim ~/.config/neofetch/config.conf'
 # Mutt
 alias muttrc='vim ~/.mutt/muttrc'
 
-# Ping 
+# Ping
 alias pg='ping'
 
 # Calculator Bc
 alias bc='bc -q'
 
-# Apt-Get 
+# Apt-Get
 alias agi='sudo apt install'
 alias agr='sudo apt remove'
 alias agu='sudo apt update'
 alias acs='apt-cache search'
 
-# System 
+# System
 alias shutdown='sudo shutdown now'
 alias restart='sudo reboot'
 alias suspend='sudo pm-suspend'
 alias bigf= 'find / -xdev -type f -size +50M'
 alias fdev='lsblk -f'
 
-# Clear, Help and Reload zshrc
+# Clear, Help
 alias c='clear'
 alias h='history'
 
@@ -330,17 +327,17 @@ alias gor="go clean -i" #need repository path
 alias gta="go test ./..."
 alias gia="go install ./..."
 
-# Ruby
-alias rc='rails c'
-
 # Gem install
 alias sgi='sudo gem install --no-ri --no-rdoc'
+
+# Ruby on Rails
+alias rc='rails c'
 
 # Rake
 alias rdm='rake db:migrate'
 alias rdmr='rake db:migrate:redo'
 
-# Rspec
+# Rspec and Spring
 alias rs='rspec spec'
 alias sr='spring rspec'
 alias src='spring rails c'
@@ -377,7 +374,7 @@ alias vtop='vtop --theme acid'
 alias spotify-tui='spt'
 alias spotify-tuirc='~/.config/spotify-tui/client.yml'
 
-# Source.io 
+# Source.io
 alias sourcerer='~/.sourcerer/sourcerer'
 
 # IntelliJ
@@ -389,6 +386,3 @@ alias bat='/usr/bin/batcat'
 
 # Homebrew
 alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
-
-#}}}
-################################################################################

@@ -1,13 +1,13 @@
-# ==============================================================================
+# =============================================================================
 #  _____    _
 # |__  /___| |__  _ __ ___
 #   / // __| '_ \| '__/ __|
 #  / /_\__ \ | | | | | (__
 # /____|___/_| |_|_|  \___|
 #
-#  =============================================================================
+#  ============================================================================
 #                            Settings from my computer :)
-#  =============================================================================
+#  ============================================================================
 #  Author:        Anderson Reis
 # 
 #  Verison:       Vim
@@ -32,34 +32,31 @@
 #                 -> Plugging
 #                 -> General Settings
 #
-#  =============================================================================
+#  ============================================================================
 #
-# Customization ------------------------------------------------------------ {{{
+# Customization ----------------------------------------------------------- {{{
 #
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`, aliases for a few 
 # useful commands.
-#
-#if [ -f ~/.zshrc_local_before ]; then
-#  source ~/.zshrc_local_before
-#fi
-# # External plugins (initialized after)
-#source ~/.zsh/plugins_after
-#
-# # External plugins (initialized before)
-#source ~/.zsh/plugins_before
-#
-  for config_file ($HOME/.dotf/zsh/*.zsh) source $config_file
+
+if [ -f ~/.zshrc_local_before ]; then
+  source ~/.zshrc_local_before
+fi
+
+ # External plugins (initialized before)
+source ~/.zsh/plugins_before
+
+ # External plugins (initialized after)
+source ~/.zsh/plugins_after
+
+for config_file ($HOME/.dotf/zsh/*.zsh) source $config_file
 #
 #}}}
 
 # Themes ------------------------------------------------------------------- {{{
-
-# Show OS info when opening a new terminal
-# Note: https://github.com/dylanaraps/neofetch
-#neofetch
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -193,7 +190,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
 )
 # }}}
 
-# Pluggings ---------------------------------------------------------------- {{{
+# Plugs ------------------------------------------------------------------- {{{
 #
 # Which plugins would you like to load? (plugins can be found in
 # ~/.oh-my-zsh/plugins/*) Custom plugins may be added to
@@ -224,16 +221,11 @@ plugins=(
   asdf
   fzf
 )
-#}}}
 
 # General Settings -------------------------------------------------------- {{{
 
 # Source Oh My Zsh
 source $HOME/.dotf/config/oh-my-zsh/oh-my-zsh.sh
-
-# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
-# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins
-# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
 
 # Vim mode
 set -o vi
@@ -262,7 +254,8 @@ bindkey -s "^[Op" "0"
 bindkey -s "^[Ol" "."
 bindkey -s "^[OM" "^M"
 
-# Grv is currently an alias used by oh-my-zsh. Add unalias grv to the end of your .zshrc to invoke GRV.
+# Grv is currently an alias used by oh-my-zsh. Add unalias grv to the end of
+# your .zshrc to invoke GRV.
 # https://github.com/rgburke/grv
 #unalias grv
 
@@ -274,4 +267,3 @@ eval "$(hub alias -s)"
 
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#}}}
