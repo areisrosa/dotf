@@ -66,11 +66,8 @@ set wildcharm=<Tab>
 " Ignore files ================================================================
 set secure exrc           " Allow load .vimrc or _vimrc from current directory
 set shortmess+=I          " Don't display the intro message on starting Vim.
-if has("nvim")
-    set termguicolors
-endif
-set modifiable		      " Will make a buffer modifiable
-set pastetoggle=<F2>	  " Causes vim to enter insert mode and output a Q on it's own line
+set modifiable		        " Will make a buffer modifiable
+set pastetoggle=<F2>	    " Causes vim to enter insert mode and output a Q on it's own line
 set runtimepath+=~/.dotf/vim/bundle/denite.nvim/
 set runtimepath+=~/.dotf/vim/bundle/nvim-yarp/
 set runtimepath+=~/.ditf/vim/bundle/vim-hug-neovim-rpc/

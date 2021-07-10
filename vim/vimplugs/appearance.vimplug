@@ -5,13 +5,13 @@ Plug 'morhetz/gruvbox'
 Plug 'areisrosa/vim', { 'as': 'dracula' }
 Plug 'areisrosa/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons' |
-            \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
-            \ Plug 'jistr/vim-nerdtree-tabs' |
-            \ Plug 'scrooloose/nerdtree-project-plugin' |
-            \ Plug 'PhilRunninger/nerdtree-buffer-ops' |
-            \ Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'kristijanhusak/defx-icons'
 Plug 'chrisbra/color_highlight'
+Plug 'preservim/nerdtree' |
+      \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+      \ Plug 'ryanoasis/vim-devicons' |
+      \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
+      \ Plug 'jistr/vim-nerdtree-tabs' |
+      \ Plug 'scrooloose/nerdtree-project-plugin' |
+      \ Plug 'PhilRunninger/nerdtree-buffer-ops' |
+      \ Plug 'PhilRunninger/nerdtree-visual-selection'

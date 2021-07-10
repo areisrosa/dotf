@@ -37,11 +37,11 @@ set nocompatible
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.dotf/vim/before/plugin/vimrc_before.vim"))
+if filereadable(expand('~/.dotf/vim/before/plugin/vimrc_before.vim'))
   source ~/.dotf/vim/before/plugin/vimrc_before.vim
 endif
 
-if filereadable(expand("~/.vimrc.before"))
+if filereadable(expand('~/.vimrc.before'))
     source ~/.vimrc.before
 endi
 
@@ -63,7 +63,6 @@ set showcmd                     " Show incomplete cmds down the bottom
 set showmode                    " Show current mode down the bottom
 set visualbell                  " No sounds
 set autoread                    " Reload files changed outside automatically
-set termguicolors               " Enables 24-bit RGB color in the TUI
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
@@ -76,7 +75,7 @@ let mapleader = ","
 " Vim Plugs ===================================================================
 " Load vim plugs this loads all the plugins specified in ~/.vim/vimplugs.vim
 " use vim-plug to manage all other plugins.
-if filereadable(expand("~/.vim/vimplugs.vim"))
+if filereadable(expand('~/.vim/vimplugs.vim'))
   source ~/.vim/vimplugs.vim
 endif
 au BufNewFile,BufRead *.vimplug set filetype=vim
@@ -107,9 +106,9 @@ endif
 set autoindent    " Enable auto indent
 set smartindent   " Smart indent
 set smarttab      " Be smart when using tabs
-set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations
-set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
-set tabstop=4     " Number of spaces that a <Tab> in the file counts for
+set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations
+set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
+set tabstop=2     " Number of spaces that a <Tab> in the file counts for
 set expandtab     " Use the appropriate number of spaces to insert a <Tab>
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
@@ -172,14 +171,18 @@ set modelines=0  " Make Vim only use folding settings for current file
 set nomodeline   " Bug Vim/Neovim Arbitrary Code Execution via Modelines
 
 " Custom Settings =============================================================
+if has('nvim')
+    set termguicolors
+endif
+
 source ~/.vim/settings.vim
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.after if it exists.
-if filereadable(expand("~/.dotf/vim/after/plugin/vimrc_after.vim"))
+if filereadable(expand('~/.dotf/vim/after/plugin/vimrc_after.vim'))
   source ~/.dotf/vim/after/plugin/vim_after.vim
 endif
 
-if filereadable(expand("~/.vimrc.after"))
+if filereadable(expand('~/.vimrc.after'))
     source ~/.vimrc.after
 endif

@@ -39,7 +39,7 @@ if empty(glob(s:plugin_manager))
 	augroup END
 endif
 
-let g:plug_dir = expand('~/.vim/bundle/')
+let g:plug_dir = expand('~/.vim/plugged')
 
 set rtp+=~/.vim/vimplugs/ "Submodules
 
@@ -67,12 +67,9 @@ runtime textobejcts.vimplug
 
 " The plugs listed in ~/.vim/.vimplugs.local will be added here to
 " allow the user to add vim plugs to dotfiles without the need for a fork.
-if filereadable(expand("~/.dotf/vim/.vimplugs.local"))
+if filereadable(expand('~/.dotf/vim/.vimplugs.local'))
   source ~/.dotf/vim/.vimplugs.local
 endif
 
 " Finalize vim-plug
 call plug#end()
-
-"}}}
-

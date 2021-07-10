@@ -51,12 +51,12 @@ nnoremap <silent>  ,fzf  :FZF<CR>
 nnoremap <silent>  ,ft   :Tags<CR>
 " Tags in the current buffer
 nnoremap <silent>  ,fbt  :BTags<CR>
-" Help tags 
+" Help tags
 nnoremap <silent>  ,fht  :Helptags<CR>
 " Lines in the current buffer
 nnoremap <silent>  ,fbl  :BLines<CR>
 " Open buffers
-nnoremap <silent>  ,fb   :Buffers<CR>
+nnoremap <silent>  ,fbf   :Buffers<CR>
 " Lines in loaded buffers
 nnoremap <silent>  ,fl   :Lines<CR>
 " Windows
