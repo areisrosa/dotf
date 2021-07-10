@@ -78,6 +78,8 @@ yellow1        = #fdc21f
 accent         = #fba922
 pink           = #f50a4d
 pink2          = #e60053
+pink3          = #ff79c6
+pink4          = #ff92df
 
 dark0_hard     = #1d2021
 dark0          = #282828
@@ -152,9 +154,9 @@ font-2 = Font Awesome:style:Regular:size=12;2
 ;------------------------------------------------------------------------------
 ;	                              MODULES LAYOUT
 ;------------------------------------------------------------------------------
-modules-left   = powermenu i3 xwindow spotify pulseaudio
-modules-center = time date xkeyboard
-modules-right  = temperature cpu memory filesystem backlight weather battery vpn-openvpn-status wlan
+modules-left   = powermenu i3 xwindow xkeyboard spotify pulseaudio
+modules-center = date time weather
+modules-right  = temperature cpu memory filesystem backlight battery wlan
 ;------------------------------------------------------------------------------
 ;	                              WORKSPACE
 ;------------------------------------------------------------------------------
@@ -247,20 +249,20 @@ date-alt = %a, %d %b %Y
 time-alt = %H:%M:%S
 
 format-prefix = "  "
-format-foreground = ${colors.cyan1}
+format-foreground = ${colors.pink4}
 format-background = ${colors.dark0_hard}
 label = "%date% "
 ;------------------------------------------------------------------------------
-;	                             TIME 
+;	                             TIME
 ;------------------------------------------------------------------------------
 [module/time]
 type = internal/date
 interval = 1
 time = %Hh %Mmin %Ss
 format-prefix = "  "
-format-foreground = ${colors.cyan1}
+format-foreground = ${colors.pink4}
 format-background = ${colors.dark0_hard}
-label = %time%
+label = "%time% "
 ;------------------------------------------------------------------------------
 ;	                              VOLUME
 ;------------------------------------------------------------------------------
@@ -304,7 +306,7 @@ click-right ="pavucontrol&"
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.white}
 format = <label>
 exec = python3 ~/.scripts/polybars/spotify/spotify_status.py -f " {artist} {play_pause} {song} "
@@ -341,12 +343,11 @@ type = custom/script
 exec = ~/.scripts/polybars/weather/weather.sh
 interval = 600
 
-label            = "  %output% "
-label-foreground = ${colors.accent}
-;format-underline = ${colors.accent}
-;-------------------------------------------------------------------------------
+label            = "   %output%"
+label-foreground = ${colors.pink4}
+;------------------------------------------------------------------------------
 ;	                              CPU
-;-------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -414,12 +415,12 @@ udspeed-minwidth = 5
 accumulate-stats = true
 unknown-as-up = true
 
-label-connected = "   %{A1:nm-connection-editor:}%essid%%{A} "
+label-connected = "  %{A1:nm-connection-editor:}%essid%%{A} "
 label-connected-foreground = ${colors.light0}
 
 format-connected = <label-connected>
 
-label-disconnected ="   not connected "
+label-disconnected ="  not connected "
 label-disconnected-foreground = ${colors.red}
 
 format-disconnected = <label-disconnected>

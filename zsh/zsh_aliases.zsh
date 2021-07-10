@@ -51,7 +51,7 @@ TRAPHUP() {
 
 # Vim && Neovim
 alias vi='/usr/bin/vim'
-alias vim='/usr/bin/nvim'
+alias vim='/usr/local/bin/nvim'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='vim ~/.config/nvim/init.vim'
 # clean the vim swap file

@@ -8,6 +8,7 @@ vim/tmp
 vim/.vimplugs.local
 vim/.vimplugs.local.bak
 vim/bundle
+vim/plugged
 vim/sessions
 vim/undo-history
 tmux/plugins
