@@ -24,7 +24,7 @@ To get started please run:
 > all of its subcomponents. If you want to be asked about each one, use:
 
 ```shell
-$ sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
+$ sh -c "`curl -fsSL https://raw.githubusercontent.com/areisrosa/dotf/master/install.sh`" -s ask
 ```
 * When it finishes, open a terminal of your preference and go to the
     `~/.dotf/config/ketty` open the file ketty.conf choose a theme for
