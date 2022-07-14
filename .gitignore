@@ -20,3 +20,5 @@ bin/subl
 .netrwhist
 .idea
 tags
+/icons
+/themes
